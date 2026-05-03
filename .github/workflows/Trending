@@ -1,0 +1,30 @@
+name: GitHub Trending Daily Push
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # UTC 00:00 = 北京时间 08:00 每日推送
+  workflow_dispatch:        # 支持手动触发测试
+
+jobs:
+  send-trending:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run trending bot
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python trending.py
