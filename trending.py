@@ -1,7 +1,7 @@
 """
 GitHub Trending Bot — 飞书版
 每天自动抓取 GitHub 热榜 Top 20，
-用 Claude AI 生成中文摘要，通过飞书群机器人 Webhook 推送卡片消息。
+用 Google Gemini API（免费）生成中文摘要，通过飞书群机器人 Webhook 推送卡片消息。
 """
 
 import os
@@ -11,7 +11,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
-import anthropic
+import google.generativeai as genai
 
 # ── 配置 ──────────────────────────────────────────────
 TRENDING_URL    = "https://github.com/trending"
@@ -78,8 +78,8 @@ def fetch_trending(since: str = "daily", limit: int = TOP_N) -> list:
 
 
 # ── AI 摘要 ───────────────────────────────────────────
-def get_ai_summary(client, name, description):
-    """调用 Claude 生成不超过 30 字的中文一句话摘要。"""
+def get_ai_summary(model, name, description):
+    """调用 Gemini 生成不超过 30 字的中文一句话摘要。"""
     if not description:
         return "暂无描述"
 
@@ -92,16 +92,12 @@ def get_ai_summary(client, name, description):
 
     for attempt in range(1, AI_RETRY + 2):
         try:
-            message = client.messages.create(
-                model="claude-sonnet-4-20250514",
-                max_tokens=80,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            return message.content[0].text.strip()
+            response = model.generate_content(prompt)
+            return response.text.strip()
         except Exception as exc:
             if attempt <= AI_RETRY:
                 print(f"  [重试 {attempt}] AI摘要失败: {exc}")
-                time.sleep(1)
+                time.sleep(2)
             else:
                 print(f"  [跳过] AI摘要最终失败: {exc}")
                 return description[:50] + ("…" if len(description) > 50 else "")
@@ -195,13 +191,13 @@ def send_all_cards(webhook_url, repos, date_str):
 
 # ── 主流程 ────────────────────────────────────────────
 def main():
-    webhook_url   = os.environ.get("FEISHU_WEBHOOK_URL", "").strip()
-    anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    webhook_url = os.environ.get("FEISHU_WEBHOOK_URL", "").strip()
+    gemini_key  = os.environ.get("GEMINI_API_KEY", "").strip()
 
     if not webhook_url:
         sys.exit("❌ 缺少环境变量 FEISHU_WEBHOOK_URL")
-    if not anthropic_key:
-        sys.exit("❌ 缺少环境变量 ANTHROPIC_API_KEY")
+    if not gemini_key:
+        sys.exit("❌ 缺少环境变量 GEMINI_API_KEY")
 
     bj_time  = datetime.now(timezone(timedelta(hours=8)))
     date_str = bj_time.strftime("%Y-%m-%d")
@@ -214,11 +210,12 @@ def main():
     if not repos:
         sys.exit("❌ 未抓取到任何仓库，页面结构可能已变化，请检查 CSS 选择器")
 
-    # 2. 逐条生成 AI 中文摘要
-    client = anthropic.Anthropic(api_key=anthropic_key)
-    print("🤖 正在生成 AI 中文摘要…")
+    # 2. 初始化 Gemini，逐条生成 AI 中文摘要
+    genai.configure(api_key=gemini_key)
+    model = genai.GenerativeModel("gemini-1.5-flash")   # 免费版主力模型
+    print("🤖 正在生成 AI 中文摘要（Gemini 1.5 Flash 免费版）…")
     for i, repo in enumerate(repos, start=1):
-        summary = get_ai_summary(client, repo["name"], repo["description"])
+        summary = get_ai_summary(model, repo["name"], repo["description"])
         repo["ai_summary"] = summary
         print(f"   [{i:02d}/{len(repos)}] {repo['name']}: {summary}")
         time.sleep(DELAY_BETWEEN_AI)
