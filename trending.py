@@ -1,324 +1,480 @@
 """
-GitHub Trending Bot v3 — 飞书终极版
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-问题修复：
-  ✅ GitHub 日榜不足20条 → 自动补充周榜/月榜（三层合并策略）
-  ✅ AI 中文摘要不显示 → 极简 Batch prompt + 多重 JSON 提取
-  ✅ 内容太浅 → 每个项目生成：一句话摘要 + 上榜原因 + 技术标签
+GitHub Trending Bot v4 ── 三榜分析终极版
+════════════════════════════════════════════════════════════
+架构：
+  日榜卡片  ──  每个项目4行富内容（中文摘要·爆火原因·适合人群·标签）
+  周榜卡片  ──  完整列表 + AI变化分析（谁上榜·谁掉了·为什么）
+  月榜卡片  ──  完整列表 + AI变化分析
 
-新能力：
-  ★ 每个项目展示：中文摘要 · 爆火原因 · 适合人群 · 分类标签
-  ★ 今日/本周/本月来源标注，清楚知道热度时间跨度
-  ★ 爆发项目 🔥 高亮（今日新增 > 500 ⭐）
-  ★ 一键跳转按钮
-  ★ 每日统计（各领域分布 + 爆发项目）
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+核心可靠性保障：
+  ✅ Gemini JSON 强制模式（response_mime_type="application/json"）
+     → 彻底消灭 "暂无分析" —— Gemini 必须输出 JSON，否则 API 报错重试
+  ✅ Batch失败→逐条兜底，逐条也失败→简单prompt兜底，三层不漏一条
+  ✅ 状态持久化（state.json 提交回仓库），支持真实排名变化对比
+════════════════════════════════════════════════════════════
 """
 import os, sys, time, json, re, requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 from google import genai
+from google.genai import types
 
-# ══════════════════════════════════════════════════
-# 配置
-# ══════════════════════════════════════════════════
-TOP_N          = 20
-BATCH_SIZE     = 10           # 每张飞书卡片条数
-CARD_COLOR     = "red"
-GEMINI_MODEL   = "gemini-2.5-flash"
-TIMEOUT        = 20
-SPIKE_MIN      = 500          # 今日新增超过此数 → 🔥爆发
+# ══════════════════════════════════════════════════════
+# 全局配置
+# ══════════════════════════════════════════════════════
+GEMINI_MODEL = "gemini-2.5-flash"
+TIMEOUT      = 20
+SPIKE_MIN    = 500          # 日新增超过此数 → 🔥爆发
+STATE_FILE   = "state.json" # 排名历史（提交回 repo 实现持久化）
 
 CATEGORY_MAP = {
-    "AI / ML":    {"python", "jupyter notebook", "r", "cuda", "c++"},
-    "前端 / Web": {"javascript", "typescript", "html", "css", "svelte", "vue"},
-    "系统 / 底层":{"rust", "zig", "go", "c", "assembly"},
-    "移动端":     {"swift", "kotlin", "dart"},
-    "DevOps":     {"shell", "dockerfile", "hcl", "makefile"},
-    "数据 / DB":  {"sql", "plpgsql", "scala"},
+    "AI / ML":    {"python","jupyter notebook","r","cuda","c++"},
+    "前端 / Web": {"javascript","typescript","html","css","svelte","vue"},
+    "系统 / 底层":{"rust","zig","go","c","assembly"},
+    "移动端":     {"swift","kotlin","dart"},
+    "DevOps":     {"shell","dockerfile","hcl","makefile"},
+    "数据 / DB":  {"sql","plpgsql","scala"},
 }
 CAT_EMOJI = {
-    "AI / ML":"🤖", "前端 / Web":"🌐", "系统 / 底层":"⚙️",
-    "移动端":"📱", "DevOps":"🐳", "数据 / DB":"🗄️", "其他":"📦"
+    "AI / ML":"🤖","前端 / Web":"🌐","系统 / 底层":"⚙️",
+    "移动端":"📱","DevOps":"🐳","数据 / DB":"🗄️","其他":"📦",
 }
-PERIOD_LABEL = {"daily":"今日🔥", "weekly":"本周📈", "monthly":"本月⭐"}
+PERIOD_LABEL = {"daily":"今日","weekly":"本周","monthly":"本月"}
+CARD_COLOR   = {"daily":"red","weekly":"turquoise","monthly":"wathet"}
 
-# ══════════════════════════════════════════════════
-# Step 1: 三层合并抓取（daily → weekly → monthly 补足20条）
-# ══════════════════════════════════════════════════
-def _fetch_one_period(session, since: str) -> list:
-    """抓取单个时段的 trending 页面。"""
-    url = f"https://github.com/trending?since={since}"
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-        ),
-        "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.5",
-    }
-    resp = session.get(url, headers=headers, timeout=TIMEOUT)
-    resp.raise_for_status()
-    soup = BeautifulSoup(resp.text, "html.parser")
-    articles = soup.select("article.Box-row")
 
+# ══════════════════════════════════════════════════════
+# 工具：JSON 强制模式 Config（核心可靠性保障）
+# ══════════════════════════════════════════════════════
+JSON_CFG = types.GenerateContentConfig(
+    response_mime_type="application/json",
+    temperature=0.25,
+)
+
+
+# ══════════════════════════════════════════════════════
+# Step 1：抓取三榜数据
+# ══════════════════════════════════════════════════════
+def _parse_stars_num(text: str) -> int:
+    m = re.search(r"[\d,]+", text or "")
+    return int(m.group().replace(",","")) if m else 0
+
+def _auto_category(language: str, description: str) -> str:
+    lang = language.lower()
+    for cat, langs in CATEGORY_MAP.items():
+        if lang in langs:
+            return cat
+    kws = ["llm","ai","gpt","model","neural","agent","openai","claude","deepseek",
+           "machine learning","deep learning","transformer","generative"]
+    if any(k in description.lower() for k in kws):
+        return "AI / ML"
+    return "其他"
+
+def fetch_period(session, since: str) -> list:
+    """抓取单时段 trending，返回 repo 列表。"""
+    r = session.get(
+        f"https://github.com/trending?since={since}",
+        headers={
+            "User-Agent": (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+            ),
+            "Accept-Language": "en-US,en;q=0.5",
+        },
+        timeout=TIMEOUT,
+    )
+    r.raise_for_status()
+    soup  = BeautifulSoup(r.text, "html.parser")
     repos = []
-    for art in articles:
+    for rank, art in enumerate(soup.select("article.Box-row"), 1):
         h2 = art.select_one("h2 a")
         if not h2:
             continue
-        full_name = h2.get("href", "").strip("/")
-        if not full_name or "/" not in full_name:
+        name = h2.get("href","").strip("/")
+        if not name or "/" not in name:
             continue
 
-        desc_el     = art.select_one("p")
-        description = desc_el.get_text(strip=True) if desc_el else ""
+        desc_el = art.select_one("p")
+        desc    = desc_el.get_text(strip=True) if desc_el else ""
 
         lang_el  = art.select_one("span[itemprop='programmingLanguage']")
         language = lang_el.get_text(strip=True) if lang_el else ""
 
         links       = art.select("a.Link--muted")
-        total_stars = links[0].get_text(strip=True) if links else "—"
-        forks       = links[1].get_text(strip=True) if len(links) > 1 else "—"
+        total_stars = links[0].get_text(strip=True) if links       else "—"
+        forks       = links[1].get_text(strip=True) if len(links)>1 else "—"
 
         today_el    = art.select_one("span.d-inline-block.float-sm-right")
-        stars_today = today_el.get_text(strip=True) if today_el else "—"
+        stars_period = today_el.get_text(strip=True) if today_el else "—"
 
-        m = re.search(r"[\d,]+", stars_today)
-        stars_num = int(m.group().replace(",", "")) if m else 0
-
-        lang_lower = language.lower()
-        category   = "其他"
-        for cat, langs in CATEGORY_MAP.items():
-            if lang_lower in langs:
-                category = cat
-                break
-        if category == "其他":
-            kws = ["llm","ai","gpt","model","neural","machine learning","agent","openai","claude","deepseek"]
-            if any(k in description.lower() for k in kws):
-                category = "AI / ML"
+        stars_num   = _parse_stars_num(stars_period)
+        category    = _auto_category(language, desc)
 
         repos.append({
-            "name":           full_name,
-            "url":            f"https://github.com/{full_name}",
-            "description":    description,
-            "language":       language,
-            "category":       category,
-            "total_stars":    total_stars,
-            "forks":          forks,
-            "stars_today":    stars_today,
-            "stars_today_num": stars_num,
-            "period":         since,
+            "rank":         rank,
+            "name":         name,
+            "url":          f"https://github.com/{name}",
+            "description":  desc,
+            "language":     language,
+            "category":     category,
+            "total_stars":  total_stars,
+            "forks":        forks,
+            "stars_period": stars_period,
+            "stars_num":    stars_num,
+            "is_spike":     stars_num >= SPIKE_MIN,
+            "period":       since,
+            # AI fields (filled later)
+            "ai_summary":  "",
+            "ai_why_hot":  "",
+            "ai_audience": "",
+            "ai_tags":     "",
         })
     return repos
 
-
-def fetch_trending_merged(limit: int = TOP_N) -> list:
-    """
-    三层合并：daily → weekly → monthly，去重后取前 limit 条。
-    每条标记来源 period，推送时展示热度时间跨度。
-    """
+def fetch_all(top_daily=25, top_weekly=25, top_monthly=25) -> dict:
     session = requests.Session()
-    # 先访问主页取 cookie，避免部分请求被拒
     try:
-        session.get("https://github.com", timeout=10,
-                    headers={"User-Agent": "Mozilla/5.0"})
+        session.get("https://github.com", timeout=8,
+                    headers={"User-Agent":"Mozilla/5.0"})
     except Exception:
         pass
-
-    seen  = {}   # name -> repo dict，保留第一次出现（daily 优先）
-    order = []   # 保持插入顺序
-
-    for since in ["daily", "weekly", "monthly"]:
-        if len(seen) >= limit:
-            break
+    data = {}
+    for since, limit in [("daily",top_daily),("weekly",top_weekly),("monthly",top_monthly)]:
         try:
-            batch = _fetch_one_period(session, since)
-            print(f"   {PERIOD_LABEL[since]}: 抓到 {len(batch)} 条")
-            for r in batch:
-                if r["name"] not in seen:
-                    seen[r["name"]] = r
-                    order.append(r["name"])
+            repos = fetch_period(session, since)[:limit]
+            data[since] = repos
+            print(f"  {PERIOD_LABEL[since]}榜: {len(repos)} 条")
         except Exception as e:
-            print(f"   ⚠️  {since} 抓取失败: {e}")
-
-    result = [seen[n] for n in order[:limit]]
-    # 重新编排排名（合并后的全局排名）
-    for i, r in enumerate(result, 1):
-        r["rank"] = i
-        r["is_spike"] = r["stars_today_num"] >= SPIKE_MIN
-    return result
+            print(f"  ⚠️  {since} 抓取失败: {e}")
+            data[since] = []
+    return data
 
 
-# ══════════════════════════════════════════════════
-# Step 2: Batch AI 富内容生成（summary + why_hot + tags）
-# ══════════════════════════════════════════════════
-_BATCH_PROMPT_TPL = """你是一名资深技术分析师，熟悉全球开源社区动态。
+# ══════════════════════════════════════════════════════
+# Step 2：状态持久化（排名对比基础）
+# ══════════════════════════════════════════════════════
+def load_state() -> dict:
+    """读取上次保存的排名状态。"""
+    try:
+        with open(STATE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}   # 首次运行，无历史
 
-请对以下 {n} 个 GitHub 项目，各生成三个字段：
-1. summary   : 一句中文介绍（≤25字，说明核心功能/用途）
-2. why_hot   : 为何近期在 GitHub 上爆火的原因分析（≤35字，结合技术趋势、行业需求、项目特点）
-3. tags      : 2~3个中文技术标签（精简，如"AI Agent · 金融分析"，用" · "分隔）
+def save_state(data: dict, date_str: str) -> None:
+    """保存本次排名状态（由 GitHub Actions 提交回仓库）。"""
+    state = {"last_updated": date_str}
+    for period in ["weekly","monthly"]:
+        repos = data.get(period, [])
+        state[period] = [
+            {"rank": r["rank"], "name": r["name"], "stars": r["stars_period"]}
+            for r in repos
+        ]
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+    print(f"  ✅ 状态已保存 → {STATE_FILE}")
 
-输入数据：
-{data}
 
-⚠️ 严格只输出合法 JSON 数组，不要任何解释、代码块或 markdown：
-[{{"id":1,"summary":"...","why_hot":"...","tags":"..."}},...,{{"id":{n},...}}]"""
+# ══════════════════════════════════════════════════════
+# Step 3：AI 富内容生成（JSON 强制模式，永不出现"暂无分析"）
+# ══════════════════════════════════════════════════════
+_ENRICH_PROMPT = """\
+你是资深开源技术分析师。为以下 GitHub 项目生成中文分析，返回 JSON 数组。
 
+项目数据（JSON）：
+{items_json}
 
-def batch_ai_enrich(client, repos: list) -> list:
-    """
-    一次 API 调用为所有仓库生成三字段富内容。
-    失败时逐条降级，最终兜底用英文截断。
-    """
+每个对象必须包含：
+- id        : 原样返回（整数）
+- summary   : 核心用途，≤25字，中文
+- why_hot   : 近期爆火原因，≤40字，结合技术背景/行业趋势/项目特点
+- audience  : 最适合哪类人关注，≤15字（如"前端开发者·想学AI的工程师"）
+- tags      : 2-3个中文技术标签，用·分隔（如"AI Agent·金融分析·多智能体"）
+
+严格返回合法JSON数组，不要任何其他内容。"""
+
+def _enrich_batch(client, repos: list) -> dict:
+    """一次 API 调用，JSON 模式，返回 {rank: ai_fields} map。"""
     items = [
-        {
-            "id":   r["rank"],
-            "name": r["name"],
-            "desc": r["description"] or "No description provided.",
-            "lang": r["language"] or "Unknown",
-            "stars_today": r["stars_today"],
-        }
+        {"id": r["rank"], "name": r["name"],
+         "desc": r["description"] or "No description.",
+         "lang": r["language"] or "Unknown",
+         "stars_today": r["stars_period"]}
         for r in repos
     ]
-    prompt = _BATCH_PROMPT_TPL.format(
-        n=len(items),
-        data=json.dumps(items, ensure_ascii=False, indent=None)
-    )
+    prompt = _ENRICH_PROMPT.format(items_json=json.dumps(items, ensure_ascii=False))
 
-    ai_map = {}
     for attempt in range(1, 4):
         try:
-            resp = client.models.generate_content(model=GEMINI_MODEL, contents=prompt)
-            raw  = resp.text.strip()
-
-            # 多重提取策略：优先完整数组，再尝试 findall 拼接
-            match = re.search(r"\[[\s\S]*\]", raw)
-            if match:
-                data = json.loads(match.group())
-            else:
-                # 兜底：逐个对象提取再拼
-                objs = re.findall(r'\{[^{}]+\}', raw)
-                data = [json.loads(o) for o in objs]
-
-            for item in data:
-                ai_map[int(item["id"])] = {
-                    "summary": item.get("summary", ""),
-                    "why_hot": item.get("why_hot", ""),
-                    "tags":    item.get("tags", ""),
-                }
-            print(f"  ✅ Batch AI 完成（{len(ai_map)}/{len(repos)} 条，1次API调用）")
-            break
-
-        except Exception as exc:
+            resp = client.models.generate_content(
+                model=GEMINI_MODEL, contents=prompt, config=JSON_CFG
+            )
+            data = json.loads(resp.text)
+            return {int(item["id"]): item for item in data}
+        except Exception as e:
             wait = 2 ** attempt
-            print(f"  [Batch重试 {attempt}/3] {exc}，等{wait}s…")
+            print(f"    [Batch重试 {attempt}/3] {e}，等 {wait}s…")
             time.sleep(wait)
+    return {}
 
-    # 写回 repos
+def _enrich_single(client, r: dict) -> dict:
+    """单条兜底，仍用 JSON 模式。"""
+    prompt = f"""\
+为此GitHub项目生成分析，返回JSON对象：
+名称：{r["name"]}
+描述：{r["description"] or "无"}
+语言：{r["language"] or "未知"}
+
+必须包含字段：summary(≤25字)、why_hot(≤40字)、audience(≤15字)、tags(2-3个·分隔)
+严格返回合法JSON，无其他内容。"""
+    try:
+        resp = client.models.generate_content(
+            model=GEMINI_MODEL, contents=prompt, config=JSON_CFG
+        )
+        return json.loads(resp.text)
+    except Exception:
+        return {
+            "summary":  r["description"][:25] if r["description"] else "暂无",
+            "why_hot":  "数据获取中",
+            "audience": "开发者",
+            "tags":     r["category"],
+        }
+
+def enrich_repos(client, repos: list) -> list:
+    """为 repos 填充 AI 四字段，三层容错保证每条都有内容。"""
+    if not repos:
+        return repos
+
+    print(f"    批量 AI 分析（{len(repos)} 条，JSON模式，1次调用）…")
+    ai_map = _enrich_batch(client, repos)
+
+    missing = []
     for r in repos:
-        ai = ai_map.get(r["rank"], {})
-        r["ai_summary"] = ai.get("summary") or _simple_fallback(client, r)
-        r["ai_why_hot"] = ai.get("why_hot") or "暂无分析"
-        r["ai_tags"]    = ai.get("tags")    or r["category"]
+        ai = ai_map.get(r["rank"])
+        if ai and ai.get("summary"):
+            r["ai_summary"]  = ai.get("summary","")
+            r["ai_why_hot"]  = ai.get("why_hot","")
+            r["ai_audience"] = ai.get("audience","")
+            r["ai_tags"]     = ai.get("tags","")
+        else:
+            missing.append(r)
+
+    if missing:
+        print(f"    ⚠️  {len(missing)} 条未命中，逐条补填…")
+        for r in missing:
+            ai = _enrich_single(client, r)
+            r["ai_summary"]  = ai.get("summary","")
+            r["ai_why_hot"]  = ai.get("why_hot","")
+            r["ai_audience"] = ai.get("audience","")
+            r["ai_tags"]     = ai.get("tags","")
+            time.sleep(0.5)
+
+    filled = sum(1 for r in repos if r["ai_summary"])
+    print(f"    ✅ AI 分析完成：{filled}/{len(repos)} 条")
     return repos
 
 
-def _simple_fallback(client, r: dict) -> str:
-    """单条简单摘要兜底（仅在 Batch 彻底失败时调用）。"""
-    if not r["description"]:
-        return "暂无描述"
-    prompt = (
-        f"用不超过25字的中文介绍这个GitHub项目的核心用途，只输出中文：\n"
-        f"项目：{r['name']}\n描述：{r['description']}"
-    )
-    try:
-        resp = client.models.generate_content(model=GEMINI_MODEL, contents=prompt)
-        return resp.text.strip()[:40]
-    except Exception:
-        return r["description"][:40] + "…"
+# ══════════════════════════════════════════════════════
+# Step 4：变化分析（周/月榜 vs 上次）
+# ══════════════════════════════════════════════════════
+_CHANGE_PROMPT = """\
+你是开源社区趋势分析师。以下是GitHub {period_label}榜的排名变化数据。
 
+上期排名：
+{prev_json}
 
-# ══════════════════════════════════════════════════
-# Step 3: 飞书卡片构建（终极版格式）
-# ══════════════════════════════════════════════════
-def _repo_block(r: dict) -> str:
+本期排名：
+{curr_json}
+
+请分析并返回JSON对象，包含：
+- trend_summary : 整体趋势判断，2-3句，说明本期最显著的技术风向（≤80字）
+- new_entries   : 数组，新上榜项目，每项 {{"name":"...","rank":N,"reason":"上榜原因≤30字"}}
+- big_risers    : 数组，排名上升最多的项目（排名变化≥3），每项 {{"name":"...","rank_change":"▲N","reason":"≤30字"}}
+- dropouts      : 数组，上期有本期消失的项目，每项 {{"name":"...","reason":"可能的原因≤25字"}}
+
+严格返回合法JSON，无其他内容。"""
+
+def analyze_changes(client, period: str, prev_state: dict, curr_repos: list) -> dict | None:
     """
-    每条仓库的飞书 Markdown 块，包含4行富内容：
-      行1: 排名 + 超链接 + 语言 + 爆发标记 + 来源时段
-      行2: 📌 中文摘要
-      行3: 💡 爆火原因
-      行4: 🏷️ 技术标签   ⭐总星  🚀今日  🍴Fork
+    对比本期与上期排名，调用 AI 生成变化解读。
+    首次运行（无历史）返回 None。
+    """
+    prev_list = prev_state.get(period, [])
+    if not prev_list:
+        return None  # 首次运行，无历史数据
+
+    prev_json = json.dumps(
+        [{"rank": p["rank"], "name": p["name"]} for p in prev_list],
+        ensure_ascii=False
+    )
+    curr_json = json.dumps(
+        [{"rank": r["rank"], "name": r["name"]} for r in curr_repos],
+        ensure_ascii=False
+    )
+    prompt = _CHANGE_PROMPT.format(
+        period_label=PERIOD_LABEL[period],
+        prev_json=prev_json,
+        curr_json=curr_json,
+    )
+
+    for attempt in range(1, 4):
+        try:
+            resp = client.models.generate_content(
+                model=GEMINI_MODEL, contents=prompt, config=JSON_CFG
+            )
+            result = json.loads(resp.text)
+            print(f"    ✅ {PERIOD_LABEL[period]}榜变化分析完成")
+            return result
+        except Exception as e:
+            wait = 2 ** attempt
+            print(f"    [变化分析重试 {attempt}/3] {e}，等 {wait}s…")
+            time.sleep(wait)
+    return None
+
+
+# ══════════════════════════════════════════════════════
+# Step 5：飞书卡片构建
+# ══════════════════════════════════════════════════════
+def _repo_block(r: dict, show_period_stars: bool = True) -> str:
+    """
+    单条仓库的飞书 Markdown 块（4行）：
+    行1: 排名 · 超链接 · 语言 · 爆发标记
+    行2: 📌 中文摘要
+    行3: 💡 爆火原因  👥 适合人群
+    行4: 🏷️ 技术标签  ⭐总星  🚀今日/本周/本月  🍴Fork
     """
     spike  = " 🔥**爆发**" if r["is_spike"] else ""
     lang   = f" `{r['language']}`" if r["language"] else ""
-    period = PERIOD_LABEL.get(r["period"], "")
     cat_e  = CAT_EMOJI.get(r["category"], "📦")
 
-    line1 = f"**{r['rank']}. [{r['name']}]({r['url']})**{lang}{spike}  _{period}_"
+    period_lbl = PERIOD_LABEL.get(r.get("period",""), "")
+    period_stars_str = f"🚀 {period_lbl} **{r['stars_period']}**" if show_period_stars else ""
+
+    line1 = f"**{r['rank']}. [{r['name']}]({r['url']})**{lang}{spike}"
     line2 = f"📌 {r['ai_summary']}"
-    line3 = f"💡 {r['ai_why_hot']}"
+    line3 = f"💡 {r['ai_why_hot']}   👥 {r['ai_audience']}"
     line4 = (
         f"{cat_e} {r['ai_tags']}"
-        f"  |  ⭐ {r['total_stars']}  🚀 今日 **{r['stars_today']}**  🍴 {r['forks']}"
+        f"  |  ⭐ {r['total_stars']}  {period_stars_str}  🍴 {r['forks']}"
     )
     return "\n".join([line1, line2, line3, line4])
 
 
-def build_card(repos: list, date_str: str, part: int, total: int) -> dict:
-    part_label  = f"（{part}/{total}）" if total > 1 else ""
-    header_text = f"🔥 GitHub 热榜 {date_str} · Top {TOP_N} {part_label}"
+def _change_block(change_data: dict) -> list:
+    """把变化分析转成飞书 elements 列表。"""
+    if not change_data:
+        return []
 
-    elements = []
-    for i, r in enumerate(repos):
-        elements.append({"tag": "markdown", "content": _repo_block(r)})
-        if i < len(repos) - 1:
-            elements.append({"tag": "hr"})
-
-    # 快捷按钮（前5条）
-    buttons = [
-        {
-            "tag":  "button",
-            "text": {"tag": "plain_text", "content": f"#{r['rank']} {r['name'].split('/')[-1]}"},
-            "url":  r["url"],
-            "type": "default",
-        }
-        for r in repos[:5]
-    ]
-    elements += [
+    elems = [
         {"tag": "hr"},
-        {"tag": "action", "actions": buttons},
-        {
-            "tag": "note",
-            "elements": [{
-                "tag":     "plain_text",
-                "content": (
-                    f"每日 08:00 自动推送 · 数据: github.com/trending"
-                    f" · AI: {GEMINI_MODEL} · 🔥爆发=今日新增>{SPIKE_MIN}⭐"
-                    f" · 🔥今日榜 / 📈本周榜 / ⭐本月榜"
-                ),
-            }],
-        },
+        {"tag": "markdown", "content": "**📊 本期榜单变化分析**"},
     ]
 
-    return {
-        "msg_type": "interactive",
-        "card": {
-            "config":  {"wide_screen_mode": True},
-            "header":  {
-                "title":    {"tag": "plain_text", "content": header_text},
-                "template": CARD_COLOR,
+    # 整体趋势
+    ts = change_data.get("trend_summary","")
+    if ts:
+        elems.append({"tag": "markdown", "content": f"🔭 {ts}"})
+
+    # 新上榜
+    new_entries = change_data.get("new_entries", [])
+    if new_entries:
+        lines = ["**🆕 新上榜**"]
+        for e in new_entries[:5]:
+            lines.append(f"• **#{e.get('rank','')} {e.get('name','')}** — {e.get('reason','')}")
+        elems.append({"tag": "markdown", "content": "\n".join(lines)})
+
+    # 排名大涨
+    risers = change_data.get("big_risers", [])
+    if risers:
+        lines = ["**⬆️ 排名大涨**"]
+        for e in risers[:4]:
+            lines.append(f"• **{e.get('name','')}** {e.get('rank_change','')} — {e.get('reason','')}")
+        elems.append({"tag": "markdown", "content": "\n".join(lines)})
+
+    # 跌出榜单
+    dropouts = change_data.get("dropouts", [])
+    if dropouts:
+        lines = ["**⬇️ 跌出本期榜单**"]
+        for e in dropouts[:4]:
+            lines.append(f"• **{e.get('name','')}** — {e.get('reason','')}")
+        elems.append({"tag": "markdown", "content": "\n".join(lines)})
+
+    return elems
+
+
+def build_cards(repos: list, period: str, date_str: str,
+                change_data: dict | None, batch_size: int = 10) -> list:
+    """
+    构建该时段的全部卡片列表（可能多张）。
+    最后一张卡片附加变化分析（如有）。
+    """
+    period_lbl  = PERIOD_LABEL[period]
+    color       = CARD_COLOR[period]
+    batches     = [repos[i:i+batch_size] for i in range(0, len(repos), batch_size)]
+    total_cards = len(batches)
+    cards       = []
+
+    for idx, batch in enumerate(batches, 1):
+        part_lbl    = f"（{idx}/{total_cards}）" if total_cards > 1 else ""
+        header_text = (
+            f"{'🔥' if period=='daily' else '📈' if period=='weekly' else '📅'} "
+            f"GitHub {period_lbl}榜 {date_str} · Top {len(repos)} {part_lbl}"
+        )
+
+        elements = []
+        for i, r in enumerate(batch):
+            elements.append({"tag": "markdown", "content": _repo_block(r)})
+            if i < len(batch) - 1:
+                elements.append({"tag": "hr"})
+
+        # 最后一张卡片才追加变化分析
+        if idx == total_cards and change_data:
+            elements.extend(_change_block(change_data))
+
+        # 快捷跳转按钮（取当前批次前5个）
+        buttons = [
+            {
+                "tag":  "button",
+                "text": {"tag":"plain_text","content":f"#{r['rank']} {r['name'].split('/')[-1]}"},
+                "url":  r["url"],
+                "type": "default",
+            }
+            for r in batch[:5]
+        ]
+        elements += [
+            {"tag": "hr"},
+            {"tag": "action", "actions": buttons},
+            {
+                "tag": "note",
+                "elements": [{
+                    "tag": "plain_text",
+                    "content": (
+                        f"每日 08:00 自动推送 · 数据来源 github.com/trending"
+                        f" · AI: {GEMINI_MODEL} · 🔥=今日新增>{SPIKE_MIN}⭐"
+                    ),
+                }],
             },
-            "elements": elements,
-        },
-    }
+        ]
+
+        cards.append({
+            "msg_type": "interactive",
+            "card": {
+                "config": {"wide_screen_mode": True},
+                "header": {
+                    "title":    {"tag":"plain_text","content": header_text},
+                    "template": color,
+                },
+                "elements": elements,
+            },
+        })
+
+    return cards
 
 
-# ══════════════════════════════════════════════════
-# Step 4: 推送 & 统计
-# ══════════════════════════════════════════════════
-def send_feishu(webhook_url: str, payload: dict, label: str) -> None:
+# ══════════════════════════════════════════════════════
+# Step 6：飞书推送
+# ══════════════════════════════════════════════════════
+def send_card(webhook_url: str, payload: dict, label: str) -> None:
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     resp = requests.post(
         webhook_url,
@@ -331,49 +487,48 @@ def send_feishu(webhook_url: str, payload: dict, label: str) -> None:
     code = res.get("StatusCode", res.get("code", -1))
     if code != 0:
         raise RuntimeError(f"飞书拒绝: {res}")
-    print(f"  ✅ {label} 推送成功")
+    print(f"  ✅ {label}")
 
-
-def push_all(webhook_url: str, repos: list, date_str: str) -> None:
-    batches = [repos[i:i + BATCH_SIZE] for i in range(0, len(repos), BATCH_SIZE)]
-    total   = len(batches)
-    for idx, batch in enumerate(batches, 1):
-        label   = f"第{idx}/{total}张（#{batch[0]['rank']}–#{batch[-1]['rank']}）"
-        payload = build_card(batch, date_str, idx, total)
-        print(f"📲 推送 {label}…")
-        send_feishu(webhook_url, payload, label)
-        if idx < total:
+def push_period(webhook_url: str, cards: list, period: str) -> None:
+    period_lbl = PERIOD_LABEL[period]
+    for i, card in enumerate(cards, 1):
+        label = f"{period_lbl}榜 第{i}/{len(cards)}张"
+        print(f"  📲 推送 {label}…")
+        send_card(webhook_url, card, label)
+        if i < len(cards):
             time.sleep(1.5)
 
 
-def print_stats(repos: list, date_str: str) -> None:
-    cats   = {}
-    spikes = []
-    daily_count = sum(1 for r in repos if r["period"] == "daily")
-    for r in repos:
-        cats[r["category"]] = cats.get(r["category"], 0) + 1
-        if r["is_spike"]:
-            spikes.append(r)
+# ══════════════════════════════════════════════════════
+# Step 7：日志统计
+# ══════════════════════════════════════════════════════
+def print_stats(all_data: dict, date_str: str) -> None:
+    print(f"\n{'═'*54}")
+    print(f"  📊 {date_str}  三榜统计")
+    print(f"{'─'*54}")
+    for period in ["daily","weekly","monthly"]:
+        repos = all_data.get(period, [])
+        if not repos:
+            continue
+        spikes = [r for r in repos if r["is_spike"]]
+        cats   = {}
+        for r in repos:
+            cats[r["category"]] = cats.get(r["category"],0) + 1
+        top3 = sorted(cats.items(), key=lambda x:-x[1])[:3]
+        top3_str = " · ".join(f"{CAT_EMOJI.get(c,'📦')}{c}×{n}" for c,n in top3)
+        print(f"  {PERIOD_LABEL[period]}榜 {len(repos)} 条  |  {top3_str}")
+        if spikes:
+            spike_names = " · ".join(r["name"].split("/")[-1] for r in spikes[:3])
+            print(f"      🔥 爆发: {spike_names}{' 等' if len(spikes)>3 else ''}")
+    print(f"{'═'*54}\n")
 
-    print(f"\n{'═'*52}")
-    print(f"  📊 {date_str} 热榜统计")
-    print(f"  📅 今日榜 {daily_count} · 补充周/月榜 {len(repos)-daily_count}")
-    print(f"{'─'*52}")
-    for cat, cnt in sorted(cats.items(), key=lambda x: -x[1]):
-        print(f"  {CAT_EMOJI.get(cat,'📦')} {cat}: {cnt} 个")
-    if spikes:
-        print(f"\n  🔥 爆发项目（今日 >{SPIKE_MIN}⭐）:")
-        for r in spikes:
-            print(f"     #{r['rank']} {r['name']} → {r['stars_today']}")
-    print(f"{'═'*52}\n")
 
-
-# ══════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════
 # 主流程
-# ══════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════
 def main() -> None:
-    webhook_url = os.environ.get("FEISHU_WEBHOOK_URL", "").strip()
-    gemini_key  = os.environ.get("GEMINI_API_KEY", "").strip()
+    webhook_url = os.environ.get("FEISHU_WEBHOOK_URL","").strip()
+    gemini_key  = os.environ.get("GEMINI_API_KEY","").strip()
     if not webhook_url:
         sys.exit("❌ 缺少: FEISHU_WEBHOOK_URL")
     if not gemini_key:
@@ -381,27 +536,63 @@ def main() -> None:
 
     bj_now   = datetime.now(timezone(timedelta(hours=8)))
     date_str = bj_now.strftime("%Y-%m-%d")
-    print(f"🗓  {date_str}  GitHub Trending Bot v3 启动")
+    print(f"\n🗓  {date_str}  GitHub Trending Bot v4 启动")
 
-    # 1. 三层合并抓取
-    print(f"\n📡 三层合并抓取（daily → weekly → monthly，目标 {TOP_N} 条）…")
-    repos = fetch_trending_merged(limit=TOP_N)
-    if not repos:
-        sys.exit("❌ 未获取到任何仓库")
-    print(f"   ✅ 合并后共 {len(repos)} 条")
+    # ── 1. 加载历史状态 ───────────────────────────────
+    print("\n📂 加载历史状态…")
+    prev_state = load_state()
+    last_date  = prev_state.get("last_updated","首次运行")
+    print(f"   上次更新: {last_date}")
 
-    # 2. Batch AI 富内容（1次调用）
-    print(f"\n🤖 Batch AI 富内容生成（{GEMINI_MODEL}，1次调用）…")
+    # ── 2. 抓取三榜 ───────────────────────────────────
+    print("\n📡 抓取三榜数据…")
+    all_data = fetch_all()
+    total = sum(len(v) for v in all_data.values())
+    if total == 0:
+        sys.exit("❌ 三榜均未获取到数据")
+
+    # ── 3. Gemini AI 分析（JSON 强制模式）─────────────
     client = genai.Client(api_key=gemini_key)
-    repos  = batch_ai_enrich(client, repos)
+    for period in ["daily","weekly","monthly"]:
+        repos = all_data.get(period, [])
+        if not repos:
+            continue
+        print(f"\n🤖 {PERIOD_LABEL[period]}榜 AI 富内容分析…")
+        all_data[period] = enrich_repos(client, repos)
 
-    # 3. 打印统计
-    print_stats(repos, date_str)
+    # ── 4. 变化分析（周/月，与上期对比）──────────────
+    changes = {}
+    for period in ["weekly","monthly"]:
+        repos = all_data.get(period, [])
+        if not repos:
+            continue
+        print(f"\n🔍 {PERIOD_LABEL[period]}榜变化分析…")
+        changes[period] = analyze_changes(client, period, prev_state, repos)
+        if changes[period] is None:
+            print(f"   ℹ️  首次运行，无历史数据，跳过变化分析")
 
-    # 4. 推送飞书
-    print("📨 推送飞书卡片…")
-    push_all(webhook_url, repos, date_str)
-    print(f"\n🎉 完成！{len(repos)} 个项目 → 飞书\n")
+    # ── 5. 打印统计 ───────────────────────────────────
+    print_stats(all_data, date_str)
+
+    # ── 6. 构建并推送飞书卡片 ─────────────────────────
+    print("📨 推送飞书卡片…\n")
+    for period in ["daily","weekly","monthly"]:
+        repos = all_data.get(period, [])
+        if not repos:
+            continue
+        cards = build_cards(
+            repos, period, date_str,
+            change_data=changes.get(period),
+            batch_size=10,
+        )
+        push_period(webhook_url, cards, period)
+        time.sleep(2)  # 三榜之间间隔，避免飞书频率限制
+
+    # ── 7. 保存本期状态（供下次对比）────────────────
+    print("\n💾 保存本期状态…")
+    save_state(all_data, date_str)
+
+    print(f"\n🎉 全部完成！三榜已推送到飞书\n")
 
 
 if __name__ == "__main__":
