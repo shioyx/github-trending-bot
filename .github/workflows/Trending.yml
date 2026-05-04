@@ -2,17 +2,23 @@ name: GitHub Trending Daily Push
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # UTC 00:00 = 北京时间 08:00 每日推送
-  workflow_dispatch:        # 支持手动触发测试
+    - cron: "0 0 * * *"   # UTC 00:00 = 北京时间 08:00
+  workflow_dispatch:
+
+# 允许 Actions 写回 state.json（排名历史持久化）
+permissions:
+  contents: write
 
 jobs:
   send-trending:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
@@ -28,3 +34,13 @@ jobs:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python trending.py
+
+      # 把 state.json 提交回仓库，实现排名历史持久化
+      - name: Save state to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          git diff --staged --quiet || \
+            git commit -m "chore: update trending state $(date +%Y-%m-%d) [skip ci]"
+          git push
