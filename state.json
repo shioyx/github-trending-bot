@@ -1,177 +1,172 @@
 {
-  "last_updated": "2026-05-05",
+  "last_updated": "2026-05-06",
   "weekly": [
     {
       "rank": 1,
       "name": "warpdotdev/warp",
-      "stars": "27,872 stars this week"
+      "stars": "28,493 stars this week"
     },
     {
       "rank": 2,
       "name": "mattpocock/skills",
-      "stars": "31,091 stars this week"
+      "stars": "25,389 stars this week"
     },
     {
       "rank": 3,
       "name": "TauricResearch/TradingAgents",
-      "stars": "13,293 stars this week"
+      "stars": "14,697 stars this week"
     },
     {
       "rank": 4,
       "name": "soxoj/maigret",
-      "stars": "4,789 stars this week"
+      "stars": "5,645 stars this week"
     },
     {
       "rank": 5,
       "name": "ruvnet/ruflo",
-      "stars": "6,838 stars this week"
+      "stars": "9,159 stars this week"
     },
     {
       "rank": 6,
       "name": "HunxByts/GhostTrack",
-      "stars": "2,617 stars this week"
+      "stars": "2,434 stars this week"
     },
     {
       "rank": 7,
       "name": "ComposioHQ/awesome-codex-skills",
-      "stars": "3,964 stars this week"
+      "stars": "3,370 stars this week"
     },
     {
       "rank": 8,
       "name": "AIDC-AI/Pixelle-Video",
-      "stars": "3,635 stars this week"
+      "stars": "4,201 stars this week"
     },
     {
       "rank": 9,
       "name": "Alishahryar1/free-claude-code",
-      "stars": "5,787 stars this week"
+      "stars": "4,510 stars this week"
     },
     {
       "rank": 10,
       "name": "iamgio/quarkdown",
-      "stars": "2,557 stars this week"
+      "stars": "2,055 stars this week"
     },
     {
       "rank": 11,
       "name": "virattt/dexter",
-      "stars": "1,524 stars this week"
+      "stars": "2,050 stars this week"
     },
     {
       "rank": 12,
-      "name": "D4Vinci/Scrapling",
-      "stars": "5,650 stars this week"
+      "name": "zed-industries/zed",
+      "stars": "1,900 stars this week"
     },
     {
       "rank": 13,
-      "name": "zed-industries/zed",
-      "stars": "1,830 stars this week"
+      "name": "CJackHwang/ds2api",
+      "stars": "1,310 stars this week"
     },
     {
       "rank": 14,
-      "name": "CJackHwang/ds2api",
-      "stars": "1,619 stars this week"
-    },
-    {
-      "rank": 15,
       "name": "lukilabs/craft-agents-oss",
-      "stars": "1,106 stars this week"
+      "stars": "926 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "forrestchang/andrej-karpathy-skills",
-      "stars": "103,293 stars this month"
+      "stars": "105,745 stars this month"
     },
     {
       "rank": 2,
       "name": "NousResearch/hermes-agent",
-      "stars": "108,507 stars this month"
+      "stars": "108,753 stars this month"
     },
     {
       "rank": 3,
       "name": "multica-ai/multica",
-      "stars": "22,432 stars this month"
+      "stars": "22,722 stars this month"
     },
     {
       "rank": 4,
       "name": "mattpocock/skills",
-      "stars": "46,450 stars this month"
+      "stars": "48,299 stars this month"
     },
     {
       "rank": 5,
       "name": "Fincept-Corporation/FinceptTerminal",
-      "stars": "17,030 stars this month"
+      "stars": "17,062 stars this month"
     },
     {
       "rank": 6,
       "name": "Alishahryar1/free-claude-code",
-      "stars": "19,618 stars this month"
+      "stars": "19,956 stars this month"
     },
     {
       "rank": 7,
       "name": "addyosmani/agent-skills",
-      "stars": "27,045 stars this month"
+      "stars": "25,759 stars this month"
     },
     {
       "rank": 8,
       "name": "shiyu-coder/Kronos",
-      "stars": "11,354 stars this month"
+      "stars": "11,523 stars this month"
     },
     {
       "rank": 9,
       "name": "coleam00/Archon",
-      "stars": "6,963 stars this month"
+      "stars": "7,050 stars this month"
     },
     {
       "rank": 10,
       "name": "HKUDS/DeepTutor",
-      "stars": "12,356 stars this month"
+      "stars": "12,179 stars this month"
     },
     {
       "rank": 11,
       "name": "microsoft/markitdown",
-      "stars": "27,415 stars this month"
+      "stars": "27,791 stars this month"
     },
     {
       "rank": 12,
       "name": "lsdefine/GenericAgent",
-      "stars": "8,239 stars this month"
+      "stars": "8,364 stars this month"
     },
     {
       "rank": 13,
       "name": "AIDC-AI/Pixelle-Video",
-      "stars": "7,257 stars this month"
+      "stars": "7,995 stars this month"
     },
     {
       "rank": 14,
       "name": "thedotmack/claude-mem",
-      "stars": "27,271 stars this month"
+      "stars": "27,468 stars this month"
     },
     {
       "rank": 15,
       "name": "hugohe3/ppt-master",
-      "stars": "7,808 stars this month"
+      "stars": "7,829 stars this month"
     },
     {
       "rank": 16,
       "name": "Z4nzu/hackingtool",
-      "stars": "13,759 stars this month"
+      "stars": "14,223 stars this month"
     },
     {
       "rank": 17,
       "name": "ComposioHQ/awesome-codex-skills",
-      "stars": "5,716 stars this month"
+      "stars": "6,091 stars this month"
     },
     {
       "rank": 18,
       "name": "rtk-ai/rtk",
-      "stars": "23,950 stars this month"
+      "stars": "24,183 stars this month"
     },
     {
       "rank": 19,
       "name": "TauricResearch/TradingAgents",
-      "stars": "20,250 stars this month"
+      "stars": "21,862 stars this month"
     }
   ]
 }
