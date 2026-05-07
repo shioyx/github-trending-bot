@@ -1,5 +1,223 @@
 {
   "last_updated": "2026-05-07",
+  "trend": {
+    "Hmbown/DeepSeek-TUI": [
+      {
+        "date": "2026-05-07",
+        "stars": 6175
+      }
+    ],
+    "addyosmani/agent-skills": [
+      {
+        "date": "2026-05-07",
+        "stars": 800
+      }
+    ],
+    "PriorLabs/TabPFN": [
+      {
+        "date": "2026-05-07",
+        "stars": 218
+      }
+    ],
+    "docusealco/docuseal": [
+      {
+        "date": "2026-05-07",
+        "stars": 774
+      }
+    ],
+    "LearningCircuit/local-deep-research": [
+      {
+        "date": "2026-05-07",
+        "stars": 532
+      }
+    ],
+    "LadybirdBrowser/ladybird": [
+      {
+        "date": "2026-05-07",
+        "stars": 113
+      }
+    ],
+    "InsForge/InsForge": [
+      {
+        "date": "2026-05-07",
+        "stars": 230
+      }
+    ],
+    "virattt/dexter": [
+      {
+        "date": "2026-05-07",
+        "stars": 666
+      }
+    ],
+    "anthropics/financial-services": [
+      {
+        "date": "2026-05-07",
+        "stars": 641
+      }
+    ],
+    "ruvnet/ruflo": [
+      {
+        "date": "2026-05-07",
+        "stars": 2192
+      }
+    ],
+    "cheahjs/free-llm-api-resources": [
+      {
+        "date": "2026-05-07",
+        "stars": 198
+      }
+    ],
+    "shiyu-coder/Kronos": [
+      {
+        "date": "2026-05-07",
+        "stars": 234
+      }
+    ],
+    "bwya77/vscode-dark-islands": [
+      {
+        "date": "2026-05-07",
+        "stars": 503
+      }
+    ],
+    "bytedance/deer-flow": [
+      {
+        "date": "2026-05-07",
+        "stars": 337
+      }
+    ],
+    "D4Vinci/Scrapling": [
+      {
+        "date": "2026-05-07",
+        "stars": 1125
+      }
+    ],
+    "warpdotdev/warp": [
+      {
+        "date": "2026-05-07",
+        "stars": 15633
+      }
+    ],
+    "TauricResearch/TradingAgents": [
+      {
+        "date": "2026-05-07",
+        "stars": 15576
+      }
+    ],
+    "mattpocock/skills": [
+      {
+        "date": "2026-05-07",
+        "stars": 20777
+      }
+    ],
+    "soxoj/maigret": [
+      {
+        "date": "2026-05-07",
+        "stars": 5990
+      }
+    ],
+    "1jehuang/jcode": [
+      {
+        "date": "2026-05-07",
+        "stars": 3332
+      }
+    ],
+    "AIDC-AI/Pixelle-Video": [
+      {
+        "date": "2026-05-07",
+        "stars": 5048
+      }
+    ],
+    "ComposioHQ/awesome-codex-skills": [
+      {
+        "date": "2026-05-07",
+        "stars": 2539
+      }
+    ],
+    "HunxByts/GhostTrack": [
+      {
+        "date": "2026-05-07",
+        "stars": 1634
+      }
+    ],
+    "zed-industries/zed": [
+      {
+        "date": "2026-05-07",
+        "stars": 2002
+      }
+    ],
+    "Alishahryar1/free-claude-code": [
+      {
+        "date": "2026-05-07",
+        "stars": 3775
+      }
+    ],
+    "Flowseal/zapret-discord-youtube": [
+      {
+        "date": "2026-05-07",
+        "stars": 869
+      }
+    ],
+    "forrestchang/andrej-karpathy-skills": [
+      {
+        "date": "2026-05-07",
+        "stars": 108696
+      }
+    ],
+    "NousResearch/hermes-agent": [
+      {
+        "date": "2026-05-07",
+        "stars": 108903
+      }
+    ],
+    "multica-ai/multica": [
+      {
+        "date": "2026-05-07",
+        "stars": 23259
+      }
+    ],
+    "coleam00/Archon": [
+      {
+        "date": "2026-05-07",
+        "stars": 7160
+      }
+    ],
+    "microsoft/markitdown": [
+      {
+        "date": "2026-05-07",
+        "stars": 28140
+      }
+    ],
+    "HKUDS/DeepTutor": [
+      {
+        "date": "2026-05-07",
+        "stars": 12136
+      }
+    ],
+    "lsdefine/GenericAgent": [
+      {
+        "date": "2026-05-07",
+        "stars": 8509
+      }
+    ],
+    "thedotmack/claude-mem": [
+      {
+        "date": "2026-05-07",
+        "stars": 27608
+      }
+    ],
+    "Z4nzu/hackingtool": [
+      {
+        "date": "2026-05-07",
+        "stars": 14651
+      }
+    ],
+    "hugohe3/ppt-master": [
+      {
+        "date": "2026-05-07",
+        "stars": 8379
+      }
+    ]
+  },
   "weekly": [
     {
       "rank": 1,
