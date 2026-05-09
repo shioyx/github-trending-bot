@@ -8,16 +8,14 @@ GitHub Trending Bot v7 ── 终极修复版
      备用模型: meta-llama/llama-3.3-70b-instruct:free
 
 格式优化（按用户要求）：
-  ✅ 删除 📊市场信号 / 👥适合人群 / 📉趋势图 三行（冗余）
-  ✅ 💡 改为「中文项目简介」（这个项目是做什么的）
-  ✅ 📌 改为「爆火原因」（为什么最近涨这么快）
+  ✅ 删除 📊市场信号 / 👥适合人群 / 📉趋势图 / 📌爆火原因 四行（冗余）
+  ✅ 💡 简短中文概要介绍该项目（40字以内，说清楚用途）
   ✅ 按今日涨星速度排序（降序）
 
-最终每条 4 行（简洁有力）：
+最终每条 3 行（极简有力）：
   行1: 排名·链接·语言·爆发标记
-  行2: 📌 爆火原因（深度分析，结合技术背景）
-  行3: 💡 项目简介（中文说清楚这个项目做什么）
-  行4: 🏷 技术标签   ⭐ 总星  🚀 今日涨星  🍴 Fork
+  行2: 💡 简短中文概要（项目是做什么的）
+  行3: 🏷 技术标签   ⭐ 总星  🚀 今日涨星  🍴 Fork
 ════════════════════════════════════════════════════════════
 """
 import os, sys, time, json, re, traceback, requests
@@ -77,7 +75,7 @@ def parse_markers(text: str) -> dict:
     result = {}
     for line in text.strip().split("\n"):
         line = line.strip()
-        for key in ["WHY_HOT", "INTRO", "TAGS"]:
+        for key in ["INTRO", "TAGS"]:
             if line.upper().startswith(f"{key}:"):
                 result[key.lower()] = line[len(key)+1:].strip()
                 break
@@ -133,7 +131,6 @@ def fetch_period(session, since: str) -> list:
             "stars_num":   stars_num,
             "is_spike":    stars_num >= SPIKE_MIN,
             "period":      since,
-            "ai_why_hot":  "",
             "ai_intro":    "",
             "ai_tags":     "",
         })
@@ -177,8 +174,7 @@ _PROMPT_TPL = """\
 
 严格按以下格式输出（每行以标记开头，全部中文）：
 
-WHY_HOT: 深入分析为什么这个项目最近涨星这么快（≤55字，结合具体技术趋势、行业事件、项目特点）
-INTRO: 一句话说清楚这个项目是做什么的（≤25字，说核心功能，不重复项目名）
+INTRO: 用简短中文概要介绍该项目是什么、核心功能是什么（≤40字，说清楚用途，不重复项目名）
 TAGS: 2-3个精准技术标签，用·分隔（如：AI Agent·多智能体·金融分析）"""
 
 def _call_openrouter(api_key: str, prompt: str, model: str) -> str:
@@ -216,27 +212,28 @@ def _ai_one(api_key: str, r: dict, period_label: str) -> dict:
         total_stars=r["total_stars"],
     )
 
-    for model in [PRIMARY_MODEL, FALLBACK_MODEL]:
-        for attempt in range(1, 3):
-            try:
-                raw    = _call_openrouter(api_key, prompt, model)
-                parsed = parse_markers(raw)
-                if parsed.get("why_hot") and parsed.get("intro"):
-                    return parsed
-                print(f"      ⚠️  {model} 解析不完整，原始: {raw[:80]}")
-            except Exception as e:
-                print(f"      ❌ {model} attempt {attempt}: {str(e)[:100]}")
-                if attempt < 2:
-                    time.sleep(3)
+    last_err = ""
+    for attempt in range(1, 4):
+        try:
+            raw    = _call_openrouter(api_key, prompt, model)
+            parsed = parse_markers(raw)
+            if parsed.get("intro"):
+                return parsed
+            print(f"      ⚠️  {model} 解析不完整，原始: {raw[:80]}")
+        except Exception as e:
+            last_err = str(e)
+            wait = 2 ** attempt
+            print(f"      ❌ {model} attempt {attempt}: {str(e)[:100]}")
+            if attempt < 3:
+                time.sleep(wait)
 
-    # 最终兜底（基于英文描述做最基本中文化）
+    # 最终兜底
+    print(f"      🔴 {r['name']} 全部失败，启用硬兜底")
     desc = r["description"]
     cat  = r["category"]
-    print(f"      🔴 {r['name']} 全部失败，启用硬兜底")
     return {
-        "why_hot": f"本{period_label}在 GitHub 快速涨星 {r['stars_period']}，{cat} 领域热度攀升",
-        "intro":   desc[:22] + "…" if len(desc) > 22 else (desc or f"{cat}类开源项目"),
-        "tags":    cat.replace(" / ", "·"),
+        "intro": desc[:35] + "…" if len(desc) > 35 else (desc or f"{cat}类开源项目"),
+        "tags":  cat.replace(" / ", "·"),
     }
 
 def enrich_all(api_key: str, repos: list, period: str) -> list:
@@ -245,7 +242,6 @@ def enrich_all(api_key: str, repos: list, period: str) -> list:
     for i, r in enumerate(repos, 1):
         print(f"   [{i:02d}/{total}] {r['name']}")
         ai = _ai_one(api_key, r, label)
-        r["ai_why_hot"] = ai.get("why_hot", "")
         r["ai_intro"]   = ai.get("intro",   "")
         # 清理 tags：去掉与大类重复的项
         raw_tags = ai.get("tags", "")
@@ -254,7 +250,6 @@ def enrich_all(api_key: str, repos: list, period: str) -> list:
             t.strip() for t in raw_tags.split("·")
             if t.strip() and t.strip() not in (r["category"], cat_name)
         ) or raw_tags or r["category"]
-        print(f"        📌 {r['ai_why_hot'][:45]}…")
         print(f"        💡 {r['ai_intro']}")
         if i < total:
             time.sleep(AI_CALL_DELAY)
@@ -362,11 +357,10 @@ def analyze_changes(api_key: str, period: str, prev_state: dict, curr_repos: lis
 # ══════════════════════════════════════════════════════
 def _repo_block(r: dict) -> str:
     """
-    4行格式，简洁有力，无冗余：
+    3行格式，简洁清晰：
     行1: 排名 · 仓库链接 · 语言 · 爆发标记
-    行2: 📌 爆火原因（为什么涨这么快）
-    行3: 💡 项目简介（这个项目是做什么的）
-    行4: 🏷 技术标签  |  ⭐ 总星  🚀 今日涨星  🍴 Fork
+    行2: 💡 简短中文概要（项目是做什么的）
+    行3: 🏷 技术标签  |  ⭐ 总星  🚀 今日涨星  🍴 Fork
     """
     spike  = " 🔥**爆发**" if r["is_spike"] else ""
     lang   = f" `{r['language']}`" if r["language"] else ""
@@ -376,7 +370,6 @@ def _repo_block(r: dict) -> str:
 
     return "\n".join([
         f"**{r['rank']}. [{r['name']}]({r['url']})**{lang}{spike}",
-        f"📌 {r['ai_why_hot']}",
         f"💡 {r['ai_intro']}",
         f"{cat_e} {tags}   ⭐ {r['total_stars']}  🚀 {pl} **{r['stars_period']}**  🍴 {r['forks']}",
     ])
