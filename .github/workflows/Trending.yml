@@ -31,11 +31,9 @@ jobs:
       - name: Run trending bot
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python trending.py
 
-      # state.json 提交回仓库（周/月榜变化分析的历史基础）
-      # continue-on-error: true 保证 git push 失败不影响整体 job 状态
       - name: Save state to repo
         continue-on-error: true
         run: |
