@@ -212,20 +212,18 @@ def _ai_one(api_key: str, r: dict, period_label: str) -> dict:
         total_stars=r["total_stars"],
     )
 
-    last_err = ""
-    for attempt in range(1, 4):
-        try:
-            raw    = _call_openrouter(api_key, prompt, model)
-            parsed = parse_markers(raw)
-            if parsed.get("intro"):
-                return parsed
-            print(f"      ⚠️  {model} 解析不完整，原始: {raw[:80]}")
-        except Exception as e:
-            last_err = str(e)
-            wait = 2 ** attempt
-            print(f"      ❌ {model} attempt {attempt}: {str(e)[:100]}")
-            if attempt < 3:
-                time.sleep(wait)
+    for model in [PRIMARY_MODEL, FALLBACK_MODEL]:
+        for attempt in range(1, 3):
+            try:
+                raw    = _call_openrouter(api_key, prompt, model)
+                parsed = parse_markers(raw)
+                if parsed.get("intro"):
+                    return parsed
+                print(f"      ⚠️  {model} 解析不完整，原始: {raw[:80]}")
+            except Exception as e:
+                print(f"      ❌ {model} attempt {attempt}: {str(e)[:100]}")
+                if attempt < 2:
+                    time.sleep(3)
 
     # 最终兜底
     print(f"      🔴 {r['name']} 全部失败，启用硬兜底")
