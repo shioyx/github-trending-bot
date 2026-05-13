@@ -1,182 +1,177 @@
 {
-  "last_updated": "2026-05-12",
+  "last_updated": "2026-05-13",
   "weekly": [
     {
       "rank": 1,
       "name": "Hmbown/DeepSeek-TUI",
-      "stars": "21,752 stars this week"
+      "stars": "20,835 stars this week"
     },
     {
       "rank": 2,
-      "name": "mattpocock/skills",
-      "stars": "12,993 stars this week"
+      "name": "anthropics/financial-services",
+      "stars": "13,176 stars this week"
     },
     {
       "rank": 3,
-      "name": "anthropics/financial-services",
-      "stars": "12,088 stars this week"
+      "name": "addyosmani/agent-skills",
+      "stars": "11,791 stars this week"
     },
     {
       "rank": 4,
-      "name": "addyosmani/agent-skills",
-      "stars": "11,725 stars this week"
+      "name": "ruvnet/ruflo",
+      "stars": "7,088 stars this week"
     },
     {
       "rank": 5,
-      "name": "ruvnet/ruflo",
-      "stars": "8,660 stars this week"
+      "name": "TauricResearch/TradingAgents",
+      "stars": "5,683 stars this week"
     },
     {
       "rank": 6,
-      "name": "TauricResearch/TradingAgents",
-      "stars": "7,259 stars this week"
+      "name": "CloakHQ/CloakBrowser",
+      "stars": "5,488 stars this week"
     },
     {
       "rank": 7,
-      "name": "VectifyAI/PageIndex",
-      "stars": "4,555 stars this week"
+      "name": "decolua/9router",
+      "stars": "5,204 stars this week"
     },
     {
       "rank": 8,
-      "name": "AIDC-AI/Pixelle-Video",
-      "stars": "4,480 stars this week"
+      "name": "VectifyAI/PageIndex",
+      "stars": "4,351 stars this week"
     },
     {
       "rank": 9,
-      "name": "decolua/9router",
-      "stars": "4,263 stars this week"
+      "name": "AIDC-AI/Pixelle-Video",
+      "stars": "4,301 stars this week"
     },
     {
       "rank": 10,
-      "name": "docusealco/docuseal",
-      "stars": "3,537 stars this week"
+      "name": "bytedance/UI-TARS-desktop",
+      "stars": "3,872 stars this week"
     },
     {
       "rank": 11,
-      "name": "bytedance/UI-TARS-desktop",
-      "stars": "3,211 stars this week"
+      "name": "rohitg00/agentmemory",
+      "stars": "3,096 stars this week"
     },
     {
       "rank": 12,
-      "name": "LearningCircuit/local-deep-research",
-      "stars": "2,449 stars this week"
+      "name": "docusealco/docuseal",
+      "stars": "2,819 stars this week"
     },
     {
       "rank": 13,
-      "name": "virattt/dexter",
-      "stars": "2,391 stars this week"
+      "name": "playcanvas/supersplat",
+      "stars": "2,600 stars this week"
     },
     {
       "rank": 14,
-      "name": "1jehuang/jcode",
-      "stars": "2,009 stars this week"
+      "name": "LearningCircuit/local-deep-research",
+      "stars": "2,412 stars this week"
     },
     {
       "rank": 15,
-      "name": "cocoindex-io/cocoindex",
-      "stars": "1,798 stars this week"
+      "name": "yikart/AiToEarn",
+      "stars": "2,348 stars this week"
     },
     {
       "rank": 16,
-      "name": "InsForge/InsForge",
-      "stars": "1,493 stars this week"
+      "name": "HKUDS/AI-Trader",
+      "stars": "2,282 stars this week"
     },
     {
       "rank": 17,
-      "name": "yikart/AiToEarn",
-      "stars": "1,226 stars this week"
-    },
-    {
-      "rank": 18,
-      "name": "bwya77/vscode-dark-islands",
-      "stars": "1,113 stars this week"
-    },
-    {
-      "rank": 19,
-      "name": "PriorLabs/TabPFN",
-      "stars": "739 stars this week"
+      "name": "InsForge/InsForge",
+      "stars": "1,549 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "forrestchang/andrej-karpathy-skills",
-      "stars": "112,987 stars this month"
+      "stars": "112,357 stars this month"
     },
     {
       "rank": 2,
       "name": "NousResearch/hermes-agent",
-      "stars": "88,781 stars this month"
+      "stars": "84,327 stars this month"
     },
     {
       "rank": 3,
       "name": "mattpocock/skills",
-      "stars": "57,314 stars this month"
+      "stars": "60,612 stars this month"
     },
     {
       "rank": 4,
-      "name": "thedotmack/claude-mem",
-      "stars": "27,417 stars this month"
+      "name": "addyosmani/agent-skills",
+      "stars": "27,115 stars this month"
     },
     {
       "rank": 5,
-      "name": "addyosmani/agent-skills",
-      "stars": "27,000 stars this month"
+      "name": "TauricResearch/TradingAgents",
+      "stars": "24,880 stars this month"
     },
     {
       "rank": 6,
-      "name": "TauricResearch/TradingAgents",
-      "stars": "24,574 stars this month"
+      "name": "Alishahryar1/free-claude-code",
+      "stars": "22,285 stars this month"
     },
     {
       "rank": 7,
-      "name": "Alishahryar1/free-claude-code",
-      "stars": "22,043 stars this month"
+      "name": "multica-ai/multica",
+      "stars": "19,082 stars this month"
     },
     {
       "rank": 8,
-      "name": "multica-ai/multica",
-      "stars": "20,178 stars this month"
+      "name": "Z4nzu/hackingtool",
+      "stars": "16,078 stars this month"
     },
     {
       "rank": 9,
-      "name": "Z4nzu/hackingtool",
-      "stars": "15,885 stars this month"
+      "name": "anthropics/financial-services",
+      "stars": "13,692 stars this month"
     },
     {
       "rank": 10,
       "name": "AIDC-AI/Pixelle-Video",
-      "stars": "11,635 stars this month"
+      "stars": "12,025 stars this month"
     },
     {
       "rank": 11,
       "name": "hugohe3/ppt-master",
-      "stars": "10,239 stars this month"
+      "stars": "10,574 stars this month"
     },
     {
       "rank": 12,
       "name": "lsdefine/GenericAgent",
-      "stars": "10,019 stars this month"
+      "stars": "10,192 stars this month"
     },
     {
       "rank": 13,
-      "name": "Anil-matcha/Open-Generative-AI",
-      "stars": "8,596 stars this month"
+      "name": "soxoj/maigret",
+      "stars": "8,676 stars this month"
     },
     {
       "rank": 14,
-      "name": "soxoj/maigret",
-      "stars": "8,398 stars this month"
+      "name": "Anil-matcha/Open-Generative-AI",
+      "stars": "8,544 stars this month"
     },
     {
       "rank": 15,
       "name": "ComposioHQ/awesome-codex-skills",
-      "stars": "7,415 stars this month"
+      "stars": "7,910 stars this month"
     },
     {
       "rank": 16,
+      "name": "Tracer-Cloud/opensre",
+      "stars": "4,343 stars this month"
+    },
+    {
+      "rank": 17,
       "name": "z-lab/dflash",
-      "stars": "3,377 stars this month"
+      "stars": "3,448 stars this month"
     }
   ]
 }
