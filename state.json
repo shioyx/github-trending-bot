@@ -1,212 +1,202 @@
 {
-  "last_updated": "2026-06-15",
+  "last_updated": "2026-06-17",
   "weekly": [
     {
       "rank": 1,
-      "name": "mvanhorn/last30days-skill",
-      "stars": "12,053 stars this week"
+      "name": "addyosmani/agent-skills",
+      "stars": "11,431 stars this week"
     },
     {
       "rank": 2,
-      "name": "chopratejas/headroom",
-      "stars": "10,653 stars this week"
+      "name": "apple/container",
+      "stars": "10,896 stars this week"
     },
     {
       "rank": 3,
-      "name": "addyosmani/agent-skills",
-      "stars": "10,445 stars this week"
+      "name": "chopratejas/headroom",
+      "stars": "9,766 stars this week"
     },
     {
       "rank": 4,
-      "name": "apple/container",
-      "stars": "10,021 stars this week"
+      "name": "mvanhorn/last30days-skill",
+      "stars": "7,226 stars this week"
     },
     {
       "rank": 5,
-      "name": "Leonxlnx/taste-skill",
-      "stars": "7,591 stars this week"
+      "name": "Panniantong/Agent-Reach",
+      "stars": "6,427 stars this week"
     },
     {
       "rank": 6,
-      "name": "microsoft/markitdown",
-      "stars": "6,280 stars this week"
+      "name": "iptv-org/iptv",
+      "stars": "6,246 stars this week"
     },
     {
       "rank": 7,
       "name": "phuryn/pm-skills",
-      "stars": "5,713 stars this week"
+      "stars": "5,775 stars this week"
     },
     {
       "rank": 8,
-      "name": "safishamsi/graphify",
-      "stars": "5,478 stars this week"
+      "name": "NVIDIA/SkillSpector",
+      "stars": "5,190 stars this week"
     },
     {
       "rank": 9,
-      "name": "Panniantong/Agent-Reach",
-      "stars": "5,468 stars this week"
+      "name": "lfnovo/open-notebook",
+      "stars": "2,873 stars this week"
     },
     {
       "rank": 10,
-      "name": "NVIDIA/SkillSpector",
-      "stars": "3,669 stars this week"
+      "name": "refactoringhq/tolaria",
+      "stars": "2,537 stars this week"
     },
     {
       "rank": 11,
-      "name": "refactoringhq/tolaria",
-      "stars": "3,592 stars this week"
+      "name": "chatwoot/chatwoot",
+      "stars": "1,930 stars this week"
     },
     {
       "rank": 12,
-      "name": "lfnovo/open-notebook",
-      "stars": "3,468 stars this week"
+      "name": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "stars": "1,731 stars this week"
     },
     {
       "rank": 13,
-      "name": "roboflow/supervision",
-      "stars": "3,315 stars this week"
+      "name": "asgeirtj/system_prompts_leaks",
+      "stars": "1,220 stars this week"
     },
     {
       "rank": 14,
-      "name": "aaif-goose/goose",
-      "stars": "2,165 stars this week"
+      "name": "microsoft/PowerToys",
+      "stars": "1,181 stars this week"
     },
     {
       "rank": 15,
-      "name": "opencv/opencv",
-      "stars": "1,227 stars this week"
+      "name": "mattermost/mattermost",
+      "stars": "918 stars this week"
     },
     {
       "rank": 16,
-      "name": "openai/plugins",
-      "stars": "1,085 stars this week"
+      "name": "music-assistant/server",
+      "stars": "865 stars this week"
     },
     {
       "rank": 17,
-      "name": "microsoft/PowerToys",
-      "stars": "1,042 stars this week"
+      "name": "LMCache/LMCache",
+      "stars": "709 stars this week"
     },
     {
       "rank": 18,
-      "name": "mattermost/mattermost",
-      "stars": "779 stars this week"
+      "name": "meshery/meshery",
+      "stars": "488 stars this week"
     },
     {
       "rank": 19,
-      "name": "music-assistant/server",
-      "stars": "504 stars this week"
+      "name": "ml-explore/mlx",
+      "stars": "336 stars this week"
     },
     {
       "rank": 20,
-      "name": "huggingface/OpenEnv",
-      "stars": "276 stars this week"
+      "name": "pytest-dev/pytest",
+      "stars": "240 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
-      "name": "mattpocock/skills",
-      "stars": "48,195 stars this month"
+      "name": "colbymchenry/codegraph",
+      "stars": "48,177 stars this month"
     },
     {
       "rank": 2,
-      "name": "colbymchenry/codegraph",
-      "stars": "47,635 stars this month"
+      "name": "Egonex-AI/Understand-Anything",
+      "stars": "46,671 stars this month"
     },
     {
       "rank": 3,
-      "name": "Egonex-AI/Understand-Anything",
-      "stars": "44,690 stars this month"
+      "name": "harry0703/MoneyPrinterTurbo",
+      "stars": "31,997 stars this month"
     },
     {
       "rank": 4,
-      "name": "harry0703/MoneyPrinterTurbo",
-      "stars": "30,998 stars this month"
+      "name": "microsoft/markitdown",
+      "stars": "31,754 stars this month"
     },
     {
       "rank": 5,
-      "name": "microsoft/markitdown",
-      "stars": "30,576 stars this month"
+      "name": "chopratejas/headroom",
+      "stars": "27,895 stars this month"
     },
     {
       "rank": 6,
       "name": "Leonxlnx/taste-skill",
-      "stars": "26,394 stars this month"
+      "stars": "27,670 stars this month"
     },
     {
       "rank": 7,
-      "name": "chopratejas/headroom",
-      "stars": "25,399 stars this month"
+      "name": "rohitg00/ai-engineering-from-scratch",
+      "stars": "25,965 stars this month"
     },
     {
       "rank": 8,
-      "name": "tinyhumansai/openhuman",
-      "stars": "25,134 stars this month"
+      "name": "Imbad0202/academic-research-skills",
+      "stars": "24,323 stars this month"
     },
     {
       "rank": 9,
-      "name": "rohitg00/ai-engineering-from-scratch",
-      "stars": "24,741 stars this month"
+      "name": "tinyhumansai/openhuman",
+      "stars": "22,585 stars this month"
     },
     {
       "rank": 10,
-      "name": "Imbad0202/academic-research-skills",
-      "stars": "24,371 stars this month"
+      "name": "ruvnet/RuView",
+      "stars": "17,001 stars this month"
     },
     {
       "rank": 11,
-      "name": "ruvnet/RuView",
-      "stars": "19,369 stars this month"
+      "name": "rohitg00/agentmemory",
+      "stars": "13,257 stars this month"
     },
     {
       "rank": 12,
-      "name": "CloakHQ/CloakBrowser",
-      "stars": "15,875 stars this month"
+      "name": "apple/container",
+      "stars": "11,366 stars this month"
     },
     {
       "rank": 13,
-      "name": "rohitg00/agentmemory",
-      "stars": "14,292 stars this month"
+      "name": "anthropics/knowledge-work-plugins",
+      "stars": "8,767 stars this month"
     },
     {
       "rank": 14,
-      "name": "apple/container",
-      "stars": "10,383 stars this month"
+      "name": "can1357/oh-my-pi",
+      "stars": "8,324 stars this month"
     },
     {
       "rank": 15,
-      "name": "anthropics/knowledge-work-plugins",
-      "stars": "8,577 stars this month"
+      "name": "hardikpandya/stop-slop",
+      "stars": "7,399 stars this month"
     },
     {
       "rank": 16,
-      "name": "can1357/oh-my-pi",
-      "stars": "8,029 stars this month"
+      "name": "HKUDS/ViMax",
+      "stars": "6,222 stars this month"
     },
     {
       "rank": 17,
-      "name": "fathah/hermes-desktop",
-      "stars": "7,386 stars this month"
+      "name": "ogulcancelik/herdr",
+      "stars": "5,101 stars this month"
     },
     {
       "rank": 18,
-      "name": "supertone-inc/supertonic",
-      "stars": "7,106 stars this month"
+      "name": "iii-hq/iii",
+      "stars": "2,566 stars this month"
     },
     {
       "rank": 19,
-      "name": "hardikpandya/stop-slop",
-      "stars": "6,931 stars this month"
-    },
-    {
-      "rank": 20,
-      "name": "HKUDS/ViMax",
-      "stars": "6,188 stars this month"
-    },
-    {
-      "rank": 21,
-      "name": "TencentCloud/TencentDB-Agent-Memory",
-      "stars": "5,095 stars this month"
+      "name": "cursor/plugins",
+      "stars": "1,589 stars this month"
     }
   ]
 }
