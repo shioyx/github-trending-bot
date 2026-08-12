@@ -1,197 +1,192 @@
 {
-  "last_updated": "2026-08-11",
+  "last_updated": "2026-08-12",
   "weekly": [
     {
       "rank": 1,
-      "name": "zhaoxuya520/reverse-skill",
-      "stars": "8,182 stars this week"
+      "name": "TencentCloud/TencentDB-Agent-Memory",
+      "stars": "7,017 stars this week"
     },
     {
       "rank": 2,
-      "name": "TencentCloud/TencentDB-Agent-Memory",
-      "stars": "7,555 stars this week"
+      "name": "cloudflare/computer",
+      "stars": "6,775 stars this week"
     },
     {
       "rank": 3,
-      "name": "firecrawl/pdf-inspector",
-      "stars": "7,143 stars this week"
+      "name": "zhaoxuya520/reverse-skill",
+      "stars": "6,730 stars this week"
     },
     {
       "rank": 4,
-      "name": "virgiliojr94/book-to-skill",
-      "stars": "4,113 stars this week"
+      "name": "firecrawl/pdf-inspector",
+      "stars": "5,367 stars this week"
     },
     {
       "rank": 5,
-      "name": "esengine/DeepSeek-Reasonix",
-      "stars": "4,109 stars this week"
+      "name": "virgiliojr94/book-to-skill",
+      "stars": "4,155 stars this week"
     },
     {
       "rank": 6,
-      "name": "lyogavin/airllm",
-      "stars": "4,042 stars this week"
+      "name": "esengine/DeepSeek-Reasonix",
+      "stars": "3,517 stars this week"
     },
     {
       "rank": 7,
-      "name": "microsoft/AI-For-Beginners",
-      "stars": "4,028 stars this week"
+      "name": "Comfy-Org/ComfyUI",
+      "stars": "3,252 stars this week"
     },
     {
       "rank": 8,
-      "name": "huangruiteng/loopx",
-      "stars": "2,947 stars this week"
+      "name": "lyogavin/airllm",
+      "stars": "2,798 stars this week"
     },
     {
       "rank": 9,
-      "name": "Comfy-Org/ComfyUI",
-      "stars": "2,842 stars this week"
+      "name": "semantica-agi/semantica",
+      "stars": "2,712 stars this week"
     },
     {
       "rank": 10,
-      "name": "google/skills",
-      "stars": "2,159 stars this week"
+      "name": "huangruiteng/loopx",
+      "stars": "2,687 stars this week"
     },
     {
       "rank": 11,
-      "name": "semantica-agi/semantica",
-      "stars": "2,009 stars this week"
+      "name": "google/skills",
+      "stars": "2,216 stars this week"
     },
     {
       "rank": 12,
       "name": "goauthentik/authentik",
-      "stars": "1,912 stars this week"
+      "stars": "2,003 stars this week"
     },
     {
       "rank": 13,
-      "name": "usekaneo/kaneo",
-      "stars": "1,396 stars this week"
+      "name": "vitali87/code-graph-rag",
+      "stars": "1,189 stars this week"
     },
     {
       "rank": 14,
-      "name": "vitali87/code-graph-rag",
-      "stars": "920 stars this week"
+      "name": "LadybirdBrowser/ladybird",
+      "stars": "679 stars this week"
     },
     {
       "rank": 15,
-      "name": "DataExpert-io/data-engineer-handbook",
-      "stars": "781 stars this week"
+      "name": "unclebob/swarm-forge",
+      "stars": "671 stars this week"
     },
     {
       "rank": 16,
-      "name": "unclebob/swarm-forge",
-      "stars": "627 stars this week"
-    },
-    {
-      "rank": 17,
       "name": "drawdb-io/drawdb",
-      "stars": "503 stars this week"
+      "stars": "597 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "mattpocock/skills",
-      "stars": "49,125 stars this month"
+      "stars": "49,161 stars this month"
     },
     {
       "rank": 2,
       "name": "diegosouzapw/OmniRoute",
-      "stars": "30,445 stars this month"
+      "stars": "30,582 stars this month"
     },
     {
       "rank": 3,
       "name": "stablyai/orca",
-      "stars": "26,074 stars this month"
+      "stars": "26,440 stars this month"
     },
     {
       "rank": 4,
       "name": "OpenCut-app/OpenCut",
-      "stars": "20,412 stars this month"
+      "stars": "20,621 stars this month"
     },
     {
       "rank": 5,
       "name": "Nutlope/hallmark",
-      "stars": "19,841 stars this month"
+      "stars": "20,034 stars this month"
     },
     {
       "rank": 6,
       "name": "koala73/worldmonitor",
-      "stars": "19,125 stars this month"
+      "stars": "19,348 stars this month"
     },
     {
       "rank": 7,
       "name": "earendil-works/pi",
-      "stars": "17,394 stars this month"
+      "stars": "18,096 stars this month"
     },
     {
       "rank": 8,
       "name": "zhaoxuya520/reverse-skill",
-      "stars": "15,571 stars this month"
+      "stars": "15,942 stars this month"
     },
     {
       "rank": 9,
-      "name": "Shubhamsaboo/awesome-llm-apps",
-      "stars": "15,049 stars this month"
+      "name": "iOfficeAI/OfficeCLI",
+      "stars": "12,907 stars this month"
     },
     {
       "rank": 10,
       "name": "virgiliojr94/book-to-skill",
-      "stars": "11,470 stars this month"
+      "stars": "11,976 stars this month"
     },
     {
       "rank": 11,
       "name": "TencentCloud/TencentDB-Agent-Memory",
-      "stars": "11,255 stars this month"
+      "stars": "11,445 stars this month"
     },
     {
       "rank": 12,
       "name": "tirth8205/code-review-graph",
-      "stars": "10,435 stars this month"
+      "stars": "10,514 stars this month"
     },
     {
       "rank": 13,
-      "name": "1jehuang/jcode",
-      "stars": "8,576 stars this month"
+      "name": "HKUDS/DeepTutor",
+      "stars": "9,113 stars this month"
     },
     {
       "rank": 14,
-      "name": "HKUDS/DeepTutor",
-      "stars": "8,346 stars this month"
+      "name": "1jehuang/jcode",
+      "stars": "8,917 stars this month"
     },
     {
       "rank": 15,
       "name": "tt-a1i/archify",
-      "stars": "7,900 stars this month"
+      "stars": "7,913 stars this month"
     },
     {
       "rank": 16,
       "name": "every-app/open-seo",
-      "stars": "7,031 stars this month"
+      "stars": "7,123 stars this month"
     },
     {
       "rank": 17,
       "name": "huggingface/speech-to-speech",
-      "stars": "6,179 stars this month"
+      "stars": "6,181 stars this month"
     },
     {
       "rank": 18,
       "name": "kangarooking/cangjie-skill",
-      "stars": "4,632 stars this month"
+      "stars": "4,833 stars this month"
     },
     {
       "rank": 19,
       "name": "pingdotgg/t3code",
-      "stars": "4,506 stars this month"
+      "stars": "4,753 stars this month"
     },
     {
       "rank": 20,
       "name": "MoonshotAI/kimi-code",
-      "stars": "3,269 stars this month"
+      "stars": "3,345 stars this month"
     },
     {
       "rank": 21,
       "name": "agegr/pi-web",
-      "stars": "2,848 stars this month"
+      "stars": "2,913 stars this month"
     }
   ]
 }
