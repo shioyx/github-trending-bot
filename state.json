@@ -1,212 +1,217 @@
 {
-  "last_updated": "2026-09-01",
+  "last_updated": "2026-09-02",
   "weekly": [
     {
       "rank": 1,
       "name": "tt-a1i/archify",
-      "stars": "22,095 stars this week"
+      "stars": "25,469 stars this week"
     },
     {
       "rank": 2,
       "name": "freestylefly/awesome-gpt-image-2",
-      "stars": "11,711 stars this week"
+      "stars": "10,669 stars this week"
     },
     {
       "rank": 3,
-      "name": "omacom/omarchy",
-      "stars": "6,382 stars this week"
+      "name": "THU-MAIC/OpenMAIC",
+      "stars": "8,014 stars this week"
     },
     {
       "rank": 4,
       "name": "K-Dense-AI/scientific-agent-skills",
-      "stars": "6,248 stars this week"
+      "stars": "6,962 stars this week"
     },
     {
       "rank": 5,
-      "name": "MadsLorentzen/ai-job-search",
-      "stars": "5,463 stars this week"
+      "name": "omacom/omarchy",
+      "stars": "6,006 stars this week"
     },
     {
       "rank": 6,
-      "name": "THU-MAIC/OpenMAIC",
-      "stars": "5,014 stars this week"
+      "name": "MadsLorentzen/ai-job-search",
+      "stars": "4,841 stars this week"
     },
     {
       "rank": 7,
-      "name": "rohitg00/ai-engineering-from-scratch",
-      "stars": "3,735 stars this week"
+      "name": "tashfeenahmed/freellmapi",
+      "stars": "3,452 stars this week"
     },
     {
       "rank": 8,
-      "name": "tashfeenahmed/freellmapi",
-      "stars": "3,640 stars this week"
+      "name": "rohitg00/ai-engineering-from-scratch",
+      "stars": "3,427 stars this week"
     },
     {
       "rank": 9,
-      "name": "AprilNEA/OpenLogi",
-      "stars": "2,565 stars this week"
+      "name": "OpenCut-app/OpenCut",
+      "stars": "2,630 stars this week"
     },
     {
       "rank": 10,
       "name": "every-app/open-seo",
-      "stars": "2,308 stars this week"
+      "stars": "2,625 stars this week"
     },
     {
       "rank": 11,
       "name": "abi/screenshot-to-code",
-      "stars": "2,264 stars this week"
+      "stars": "2,485 stars this week"
     },
     {
       "rank": 12,
-      "name": "tinyhumansai/openhuman",
-      "stars": "2,227 stars this week"
+      "name": "AprilNEA/OpenLogi",
+      "stars": "2,089 stars this week"
     },
     {
       "rank": 13,
-      "name": "anthropics/claude-plugins-official",
-      "stars": "2,024 stars this week"
+      "name": "p-e-w/heretic",
+      "stars": "1,874 stars this week"
     },
     {
       "rank": 14,
       "name": "anthropics/claude-plugins-community",
-      "stars": "1,846 stars this week"
+      "stars": "1,634 stars this week"
     },
     {
       "rank": 15,
-      "name": "apache/maka",
-      "stars": "1,697 stars this week"
+      "name": "cursor/plugins",
+      "stars": "1,377 stars this week"
     },
     {
       "rank": 16,
-      "name": "cursor/plugins",
-      "stars": "1,479 stars this week"
+      "name": "ConardLi/garden-skills",
+      "stars": "1,340 stars this week"
     },
     {
       "rank": 17,
-      "name": "p-e-w/heretic",
-      "stars": "1,439 stars this week"
+      "name": "apache/maka",
+      "stars": "1,285 stars this week"
     },
     {
       "rank": 18,
-      "name": "ConardLi/garden-skills",
-      "stars": "1,370 stars this week"
+      "name": "thedotmack/claude-mem",
+      "stars": "1,164 stars this week"
     },
     {
       "rank": 19,
-      "name": "asciimoo/hister",
-      "stars": "936 stars this week"
+      "name": "punkpeye/awesome-mcp-servers",
+      "stars": "919 stars this week"
     },
     {
       "rank": 20,
       "name": "google/googletest",
-      "stars": "471 stars this week"
+      "stars": "492 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "tt-a1i/archify",
-      "stars": "29,539 stars this month"
+      "stars": "33,153 stars this month"
     },
     {
       "rank": 2,
-      "name": "diegosouzapw/OmniRoute",
-      "stars": "23,809 stars this month"
+      "name": "zhaoxuya520/reverse-skill",
+      "stars": "22,512 stars this month"
     },
     {
       "rank": 3,
-      "name": "zhaoxuya520/reverse-skill",
-      "stars": "22,876 stars this month"
+      "name": "freestylefly/awesome-gpt-image-2",
+      "stars": "18,278 stars this month"
     },
     {
       "rank": 4,
-      "name": "public-apis/public-apis",
-      "stars": "20,955 stars this month"
+      "name": "TencentCloud/TencentDB-Agent-Memory",
+      "stars": "15,686 stars this month"
     },
     {
       "rank": 5,
-      "name": "earendil-works/pi",
-      "stars": "18,958 stars this month"
+      "name": "firecrawl/pdf-inspector",
+      "stars": "15,440 stars this month"
     },
     {
       "rank": 6,
-      "name": "freestylefly/awesome-gpt-image-2",
-      "stars": "17,692 stars this month"
+      "name": "omacom/omarchy",
+      "stars": "12,675 stars this month"
     },
     {
       "rank": 7,
-      "name": "TencentCloud/TencentDB-Agent-Memory",
-      "stars": "15,760 stars this month"
+      "name": "ayghri/i-have-adhd",
+      "stars": "11,429 stars this month"
     },
     {
       "rank": 8,
-      "name": "firecrawl/pdf-inspector",
-      "stars": "15,596 stars this month"
+      "name": "AprilNEA/OpenLogi",
+      "stars": "10,446 stars this month"
     },
     {
       "rank": 9,
-      "name": "virgiliojr94/book-to-skill",
-      "stars": "13,529 stars this month"
+      "name": "THU-MAIC/OpenMAIC",
+      "stars": "8,755 stars this month"
     },
     {
       "rank": 10,
-      "name": "omacom/omarchy",
-      "stars": "12,040 stars this month"
+      "name": "donnemartin/system-design-primer",
+      "stars": "7,979 stars this month"
     },
     {
       "rank": 11,
-      "name": "ayghri/i-have-adhd",
-      "stars": "11,574 stars this month"
+      "name": "volcengine/OpenViking",
+      "stars": "7,321 stars this month"
     },
     {
       "rank": 12,
-      "name": "AprilNEA/OpenLogi",
-      "stars": "10,223 stars this month"
+      "name": "cactus-compute/needle",
+      "stars": "6,669 stars this month"
     },
     {
       "rank": 13,
-      "name": "volcengine/OpenViking",
-      "stars": "7,099 stars this month"
+      "name": "pingdotgg/t3code",
+      "stars": "5,323 stars this month"
     },
     {
       "rank": 14,
-      "name": "cactus-compute/needle",
-      "stars": "6,577 stars this month"
+      "name": "huangruiteng/loopx",
+      "stars": "5,248 stars this month"
     },
     {
       "rank": 15,
-      "name": "pingdotgg/t3code",
-      "stars": "5,309 stars this month"
+      "name": "cursor/plugins",
+      "stars": "4,020 stars this month"
     },
     {
       "rank": 16,
-      "name": "apache/maka",
-      "stars": "3,378 stars this month"
+      "name": "google/skills",
+      "stars": "3,797 stars this month"
     },
     {
       "rank": 17,
-      "name": "CodebuffAI/freebuff",
-      "stars": "3,300 stars this month"
+      "name": "3b1b/manim",
+      "stars": "3,476 stars this month"
     },
     {
       "rank": 18,
-      "name": "modular/modular",
-      "stars": "2,868 stars this month"
+      "name": "apache/maka",
+      "stars": "3,448 stars this month"
     },
     {
       "rank": 19,
-      "name": "anthropics/claude-plugins-community",
-      "stars": "2,749 stars this month"
+      "name": "modular/modular",
+      "stars": "2,891 stars this month"
     },
     {
       "rank": 20,
-      "name": "megadose/holehe",
-      "stars": "2,687 stars this month"
+      "name": "anthropics/claude-plugins-community",
+      "stars": "2,866 stars this month"
     },
     {
       "rank": 21,
       "name": "unclebob/swarm-forge",
-      "stars": "1,999 stars this month"
+      "stars": "2,062 stars this month"
+    },
+    {
+      "rank": 22,
+      "name": "youssofal/MTPLX",
+      "stars": "766 stars this month"
     }
   ]
 }
