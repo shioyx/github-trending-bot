@@ -1,222 +1,212 @@
 {
-  "last_updated": "2026-09-20",
+  "last_updated": "2026-09-21",
   "weekly": [
     {
       "rank": 1,
       "name": "alibaba/open-code-review",
-      "stars": "15,028 stars this week"
+      "stars": "15,504 stars this week"
     },
     {
       "rank": 2,
       "name": "bilawalsidhu/gods-eye-view",
-      "stars": "10,207 stars this week"
+      "stars": "8,111 stars this week"
     },
     {
       "rank": 3,
       "name": "affaan-m/ECC",
-      "stars": "6,265 stars this week"
+      "stars": "6,453 stars this week"
     },
     {
       "rank": 4,
-      "name": "ayghri/i-have-adhd",
-      "stars": "5,589 stars this week"
+      "name": "stablyai/orca",
+      "stars": "5,841 stars this week"
     },
     {
       "rank": 5,
-      "name": "stablyai/orca",
-      "stars": "5,404 stars this week"
+      "name": "ayghri/i-have-adhd",
+      "stars": "5,249 stars this week"
     },
     {
       "rank": 6,
       "name": "Tencent/WeKnora",
-      "stars": "4,867 stars this week"
+      "stars": "5,242 stars this week"
     },
     {
       "rank": 7,
-      "name": "Panniantong/Agent-Reach",
-      "stars": "3,914 stars this week"
+      "name": "addyosmani/agent-skills",
+      "stars": "3,986 stars this week"
     },
     {
       "rank": 8,
-      "name": "addyosmani/agent-skills",
-      "stars": "3,445 stars this week"
+      "name": "Panniantong/Agent-Reach",
+      "stars": "3,690 stars this week"
     },
     {
       "rank": 9,
       "name": "blader/humanizer",
-      "stars": "3,024 stars this week"
+      "stars": "3,045 stars this week"
     },
     {
       "rank": 10,
-      "name": "microsoft/markitdown",
-      "stars": "2,767 stars this week"
+      "name": "heygen-com/hyperframes",
+      "stars": "2,546 stars this week"
     },
     {
       "rank": 11,
-      "name": "heygen-com/hyperframes",
-      "stars": "2,498 stars this week"
+      "name": "microsoft/markitdown",
+      "stars": "2,521 stars this week"
     },
     {
       "rank": 12,
       "name": "anthropics/claude-code",
-      "stars": "1,999 stars this week"
+      "stars": "2,342 stars this week"
     },
     {
       "rank": 13,
-      "name": "danny-avila/LibreChat",
-      "stars": "1,573 stars this week"
+      "name": "petergyang/no-ai-slop",
+      "stars": "1,819 stars this week"
     },
     {
       "rank": 14,
-      "name": "supabase/supabase",
-      "stars": "1,389 stars this week"
+      "name": "danny-avila/LibreChat",
+      "stars": "1,600 stars this week"
     },
     {
       "rank": 15,
-      "name": "mksglu/context-mode",
-      "stars": "1,359 stars this week"
+      "name": "supabase/supabase",
+      "stars": "1,484 stars this week"
     },
     {
       "rank": 16,
-      "name": "huggingface/transformers",
-      "stars": "1,290 stars this week"
+      "name": "anthropics/knowledge-work-plugins",
+      "stars": "1,298 stars this week"
     },
     {
       "rank": 17,
-      "name": "max-sixty/worktrunk",
-      "stars": "1,141 stars this week"
+      "name": "mksglu/context-mode",
+      "stars": "1,242 stars this week"
     },
     {
       "rank": 18,
-      "name": "kunchenguid/firstmate",
-      "stars": "1,073 stars this week"
+      "name": "cline/cline",
+      "stars": "1,167 stars this week"
     },
     {
       "rank": 19,
-      "name": "anthropics/knowledge-work-plugins",
-      "stars": "1,034 stars this week"
+      "name": "max-sixty/worktrunk",
+      "stars": "822 stars this week"
     },
     {
       "rank": 20,
-      "name": "openai/plugins",
-      "stars": "522 stars this week"
+      "name": "home-assistant/core",
+      "stars": "480 stars this week"
     },
     {
       "rank": 21,
-      "name": "home-assistant/core",
-      "stars": "417 stars this week"
+      "name": "cilium/cilium",
+      "stars": "373 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "tt-a1i/archify",
-      "stars": "53,311 stars this month"
+      "stars": "53,904 stars this month"
     },
     {
       "rank": 2,
       "name": "ayghri/i-have-adhd",
-      "stars": "26,527 stars this month"
+      "stars": "26,844 stars this month"
     },
     {
       "rank": 3,
       "name": "debpalash/VoiceStudio",
-      "stars": "23,139 stars this month"
+      "stars": "22,901 stars this month"
     },
     {
       "rank": 4,
       "name": "freestylefly/awesome-gpt-image-2",
-      "stars": "21,920 stars this month"
+      "stars": "22,015 stars this month"
     },
     {
       "rank": 5,
       "name": "cathrynlavery/diagram-design",
-      "stars": "18,899 stars this month"
+      "stars": "17,716 stars this month"
     },
     {
       "rank": 6,
-      "name": "THU-MAIC/OpenMAIC",
-      "stars": "17,316 stars this month"
+      "name": "alibaba/open-code-review",
+      "stars": "17,582 stars this month"
     },
     {
       "rank": 7,
-      "name": "alibaba/open-code-review",
-      "stars": "16,711 stars this month"
+      "name": "THU-MAIC/OpenMAIC",
+      "stars": "17,511 stars this month"
     },
     {
       "rank": 8,
       "name": "omacom/omarchy",
-      "stars": "15,717 stars this month"
+      "stars": "15,720 stars this month"
     },
     {
       "rank": 9,
-      "name": "vorssaint/vorssaint-utils",
-      "stars": "14,438 stars this month"
+      "name": "cloudflare/security-audit-skill",
+      "stars": "14,879 stars this month"
     },
     {
       "rank": 10,
-      "name": "cloudflare/security-audit-skill",
-      "stars": "12,420 stars this month"
+      "name": "vorssaint/vorssaint-utils",
+      "stars": "14,605 stars this month"
     },
     {
       "rank": 11,
       "name": "AprilNEA/OpenLogi",
-      "stars": "12,141 stars this month"
+      "stars": "10,567 stars this month"
     },
     {
       "rank": 12,
-      "name": "tashfeenahmed/freellmapi",
-      "stars": "8,646 stars this month"
+      "name": "Tencent/WeKnora",
+      "stars": "7,936 stars this month"
     },
     {
       "rank": 13,
-      "name": "Tencent/WeKnora",
-      "stars": "7,397 stars this month"
+      "name": "jingyaogong/minimind",
+      "stars": "7,126 stars this month"
     },
     {
       "rank": 14,
-      "name": "jingyaogong/minimind",
-      "stars": "7,036 stars this month"
+      "name": "every-app/open-seo",
+      "stars": "6,976 stars this month"
     },
     {
       "rank": 15,
-      "name": "every-app/open-seo",
-      "stars": "6,917 stars this month"
+      "name": "Lakr233/vphone-cli",
+      "stars": "6,211 stars this month"
     },
     {
       "rank": 16,
-      "name": "Lakr233/vphone-cli",
-      "stars": "6,183 stars this month"
+      "name": "google-research/timesfm",
+      "stars": "5,364 stars this month"
     },
     {
       "rank": 17,
-      "name": "google-research/timesfm",
-      "stars": "5,274 stars this month"
+      "name": "Tencent/BrowserSkill",
+      "stars": "4,797 stars this month"
     },
     {
       "rank": 18,
-      "name": "abue-ammar/tinycast",
-      "stars": "4,979 stars this month"
+      "name": "cursor/plugins",
+      "stars": "4,521 stars this month"
     },
     {
       "rank": 19,
-      "name": "cursor/plugins",
-      "stars": "4,944 stars this month"
+      "name": "anthropics/claude-plugins-community",
+      "stars": "4,010 stars this month"
     },
     {
       "rank": 20,
-      "name": "anthropics/claude-plugins-community",
-      "stars": "3,968 stars this month"
-    },
-    {
-      "rank": 21,
-      "name": "melgarafael/DeskcommCRM",
-      "stars": "2,827 stars this month"
-    },
-    {
-      "rank": 22,
       "name": "tech-leads-club/agent-skills",
-      "stars": "1,527 stars this month"
+      "stars": "1,604 stars this month"
     }
   ]
 }
