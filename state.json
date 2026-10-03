@@ -1,217 +1,207 @@
 {
-  "last_updated": "2026-10-02",
+  "last_updated": "2026-10-03",
   "weekly": [
     {
       "rank": 1,
-      "name": "vectorize-io/hindsight",
-      "stars": "17,403 stars this week"
+      "name": "debpalash/VoiceStudio",
+      "stars": "16,475 stars this week"
     },
     {
       "rank": 2,
-      "name": "debpalash/VoiceStudio",
-      "stars": "16,114 stars this week"
+      "name": "vectorize-io/hindsight",
+      "stars": "16,183 stars this week"
     },
     {
       "rank": 3,
       "name": "paperclipai/paperclip",
-      "stars": "14,335 stars this week"
+      "stars": "12,825 stars this week"
     },
     {
       "rank": 4,
       "name": "rohitg00/ai-engineering-from-scratch",
-      "stars": "6,469 stars this week"
+      "stars": "5,600 stars this week"
     },
     {
       "rank": 5,
-      "name": "dream-num/univer",
-      "stars": "5,267 stars this week"
+      "name": "pbakaus/impeccable",
+      "stars": "3,124 stars this week"
     },
     {
       "rank": 6,
-      "name": "pbakaus/impeccable",
-      "stars": "2,704 stars this week"
+      "name": "heygen-com/hyperframes",
+      "stars": "2,661 stars this week"
     },
     {
       "rank": 7,
-      "name": "TencentCloud/Octop",
-      "stars": "1,360 stars this week"
+      "name": "harry0703/MoneyPrinterTurbo",
+      "stars": "2,533 stars this week"
     },
     {
       "rank": 8,
-      "name": "anthropics/financial-services",
-      "stars": "1,270 stars this week"
+      "name": "google/ax",
+      "stars": "1,783 stars this week"
     },
     {
       "rank": 9,
-      "name": "HKUDS/CLI-Anything",
-      "stars": "1,055 stars this week"
+      "name": "TencentCloud/Octop",
+      "stars": "1,425 stars this week"
     },
     {
       "rank": 10,
-      "name": "alirezarezvani/claude-skills",
-      "stars": "743 stars this week"
+      "name": "pablostanley/yoinks",
+      "stars": "1,415 stars this week"
     },
     {
       "rank": 11,
-      "name": "vercel/next.js",
-      "stars": "624 stars this week"
+      "name": "anthropics/financial-services",
+      "stars": "1,073 stars this week"
     },
     {
       "rank": 12,
-      "name": "davila7/claude-code-templates",
-      "stars": "601 stars this week"
+      "name": "alirezarezvani/claude-skills",
+      "stars": "832 stars this week"
     },
     {
       "rank": 13,
-      "name": "androoAGI/starnet",
-      "stars": "592 stars this week"
+      "name": "tile-ai/tilelang",
+      "stars": "732 stars this week"
     },
     {
       "rank": 14,
-      "name": "tile-ai/tilelang",
-      "stars": "481 stars this week"
+      "name": "vercel/next.js",
+      "stars": "658 stars this week"
     },
     {
       "rank": 15,
       "name": "anthropics/claude-code-action",
-      "stars": "376 stars this week"
+      "stars": "417 stars this week"
     },
     {
       "rank": 16,
-      "name": "FxEmbed/FxEmbed",
+      "name": "pytorch/pytorch",
       "stars": "369 stars this week"
     },
     {
       "rank": 17,
-      "name": "agent-substrate/substrate",
-      "stars": "365 stars this week"
-    },
-    {
-      "rank": 18,
       "name": "flutter/flutter",
-      "stars": "147 stars this week"
+      "stars": "228 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "tt-a1i/archify",
-      "stars": "35,068 stars this month"
+      "stars": "33,363 stars this month"
     },
     {
       "rank": 2,
-      "name": "bilawalsidhu/gods-eye-view",
-      "stars": "31,240 stars this month"
+      "name": "DietrichGebert/ponytail",
+      "stars": "31,213 stars this month"
     },
     {
       "rank": 3,
-      "name": "DietrichGebert/ponytail",
-      "stars": "31,160 stars this month"
+      "name": "bilawalsidhu/gods-eye-view",
+      "stars": "31,110 stars this month"
     },
     {
       "rank": 4,
       "name": "ayghri/i-have-adhd",
-      "stars": "26,584 stars this month"
+      "stars": "26,537 stars this month"
     },
     {
       "rank": 5,
       "name": "affaan-m/ECC",
-      "stars": "26,450 stars this month"
+      "stars": "26,490 stars this month"
     },
     {
       "rank": 6,
       "name": "vectorize-io/hindsight",
-      "stars": "22,416 stars this month"
+      "stars": "22,756 stars this month"
     },
     {
       "rank": 7,
       "name": "alibaba/open-code-review",
-      "stars": "21,646 stars this month"
+      "stars": "21,821 stars this month"
     },
     {
       "rank": 8,
       "name": "paperclipai/paperclip",
-      "stars": "16,130 stars this month"
+      "stars": "16,583 stars this month"
     },
     {
       "rank": 9,
       "name": "heygen-com/hyperframes",
-      "stars": "11,734 stars this month"
+      "stars": "12,185 stars this month"
     },
     {
       "rank": 10,
-      "name": "THU-MAIC/OpenMAIC",
-      "stars": "11,062 stars this month"
+      "name": "Tencent/WeKnora",
+      "stars": "10,794 stars this month"
     },
     {
       "rank": 11,
-      "name": "Tencent/WeKnora",
-      "stars": "10,740 stars this month"
+      "name": "THU-MAIC/OpenMAIC",
+      "stars": "9,734 stars this month"
     },
     {
       "rank": 12,
       "name": "tashfeenahmed/freellmapi",
-      "stars": "6,611 stars this month"
+      "stars": "6,530 stars this month"
     },
     {
       "rank": 13,
-      "name": "jingyaogong/minimind",
-      "stars": "6,436 stars this month"
+      "name": "anthropics/claude-code",
+      "stars": "5,832 stars this month"
     },
     {
       "rank": 14,
-      "name": "anthropics/claude-code",
-      "stars": "5,819 stars this month"
+      "name": "trycua/cua",
+      "stars": "5,762 stars this month"
     },
     {
       "rank": 15,
-      "name": "trycua/cua",
-      "stars": "5,674 stars this month"
+      "name": "TencentCloud/Octop",
+      "stars": "5,017 stars this month"
     },
     {
       "rank": 16,
-      "name": "TencentCloud/Octop",
-      "stars": "4,888 stars this month"
+      "name": "mksglu/context-mode",
+      "stars": "4,728 stars this month"
     },
     {
       "rank": 17,
-      "name": "mksglu/context-mode",
-      "stars": "4,470 stars this month"
+      "name": "anthropics/financial-services",
+      "stars": "3,991 stars this month"
     },
     {
       "rank": 18,
-      "name": "anthropics/financial-services",
-      "stars": "3,930 stars this month"
+      "name": "NVIDIA/SkillSpector",
+      "stars": "3,495 stars this month"
     },
     {
       "rank": 19,
-      "name": "NVIDIA/SkillSpector",
-      "stars": "3,423 stars this month"
+      "name": "superdesigndev/treg",
+      "stars": "3,055 stars this month"
     },
     {
       "rank": 20,
-      "name": "superdesigndev/treg",
-      "stars": "3,249 stars this month"
+      "name": "cursor/plugins",
+      "stars": "2,992 stars this month"
     },
     {
       "rank": 21,
-      "name": "cursor/plugins",
-      "stars": "2,977 stars this month"
+      "name": "anthropics/knowledge-work-plugins",
+      "stars": "2,238 stars this month"
     },
     {
       "rank": 22,
-      "name": "fmtlib/fmt",
-      "stars": "2,130 stars this month"
+      "name": "max-sixty/worktrunk",
+      "stars": "1,950 stars this month"
     },
     {
       "rank": 23,
-      "name": "max-sixty/worktrunk",
-      "stars": "1,903 stars this month"
-    },
-    {
-      "rank": 24,
       "name": "longbridge/gpui-kit",
-      "stars": "1,786 stars this month"
+      "stars": "1,949 stars this month"
     }
   ]
 }
