@@ -1,172 +1,172 @@
 {
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-10-14",
   "weekly": [
     {
       "rank": 1,
-      "name": "morluto/rea",
-      "stars": "130,471 stars this week"
+      "name": "boykopovar/AnyPS5",
+      "stars": "28,663 stars this week"
     },
     {
       "rank": 2,
-      "name": "boykopovar/AnyPS5",
-      "stars": "27,263 stars this week"
+      "name": "mattpocock/skills",
+      "stars": "11,955 stars this week"
     },
     {
       "rank": 3,
-      "name": "mattpocock/skills",
-      "stars": "11,139 stars this week"
+      "name": "cathrynlavery/diagram-design",
+      "stars": "9,867 stars this week"
     },
     {
       "rank": 4,
-      "name": "DuarteSantos8/openGym",
-      "stars": "6,621 stars this week"
+      "name": "heygen-com/hyperframes",
+      "stars": "4,732 stars this week"
     },
     {
       "rank": 5,
       "name": "tester-army/e2e",
-      "stars": "5,582 stars this week"
+      "stars": "4,426 stars this week"
     },
     {
       "rank": 6,
-      "name": "heygen-com/hyperframes",
-      "stars": "4,482 stars this week"
+      "name": "thedotmack/claude-mem",
+      "stars": "3,587 stars this week"
     },
     {
       "rank": 7,
-      "name": "thedotmack/claude-mem",
-      "stars": "3,762 stars this week"
+      "name": "earthtojake/text-to-cad",
+      "stars": "2,173 stars this week"
     },
     {
       "rank": 8,
-      "name": "earthtojake/text-to-cad",
-      "stars": "2,441 stars this week"
+      "name": "cursor/plugins",
+      "stars": "1,141 stars this week"
     },
     {
       "rank": 9,
-      "name": "mvschwarz/openrig",
-      "stars": "2,056 stars this week"
+      "name": "flutter/flutter",
+      "stars": "967 stars this week"
     },
     {
       "rank": 10,
-      "name": "cursor/plugins",
-      "stars": "1,144 stars this week"
-    },
-    {
-      "rank": 11,
-      "name": "flutter/flutter",
-      "stars": "806 stars this week"
+      "name": "EpicGames/raddebugger",
+      "stars": "857 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "debpalash/VoiceStudio",
-      "stars": "37,110 stars this month"
+      "stars": "36,408 stars this month"
     },
     {
       "rank": 2,
       "name": "vectorize-io/hindsight",
-      "stars": "25,557 stars this month"
+      "stars": "25,874 stars this month"
     },
     {
       "rank": 3,
-      "name": "bilawalsidhu/gods-eye-view",
-      "stars": "24,627 stars this month"
+      "name": "alibaba/open-code-review",
+      "stars": "24,283 stars this month"
     },
     {
       "rank": 4,
-      "name": "alibaba/open-code-review",
-      "stars": "24,317 stars this month"
+      "name": "affaan-m/ECC",
+      "stars": "22,653 stars this month"
     },
     {
       "rank": 5,
-      "name": "affaan-m/ECC",
-      "stars": "22,583 stars this month"
+      "name": "paperclipai/paperclip",
+      "stars": "21,106 stars this month"
     },
     {
       "rank": 6,
-      "name": "paperclipai/paperclip",
-      "stars": "20,601 stars this month"
+      "name": "rohitg00/ai-engineering-from-scratch",
+      "stars": "14,347 stars this month"
     },
     {
       "rank": 7,
-      "name": "rohitg00/ai-engineering-from-scratch",
-      "stars": "13,880 stars this month"
+      "name": "heygen-com/hyperframes",
+      "stars": "13,203 stars this month"
     },
     {
       "rank": 8,
       "name": "JustVugg/colibri",
-      "stars": "13,470 stars this month"
+      "stars": "13,015 stars this month"
     },
     {
       "rank": 9,
-      "name": "heygen-com/hyperframes",
-      "stars": "12,662 stars this month"
+      "name": "addyosmani/agent-skills",
+      "stars": "12,820 stars this month"
     },
     {
       "rank": 10,
-      "name": "addyosmani/agent-skills",
-      "stars": "12,396 stars this month"
+      "name": "Tencent/WeKnora",
+      "stars": "11,177 stars this month"
     },
     {
       "rank": 11,
-      "name": "Tencent/WeKnora",
-      "stars": "11,159 stars this month"
+      "name": "NationalSecurityAgency/ghidra",
+      "stars": "11,115 stars this month"
     },
     {
       "rank": 12,
-      "name": "NationalSecurityAgency/ghidra",
-      "stars": "9,722 stars this month"
+      "name": "tashfeenahmed/freellmapi",
+      "stars": "8,786 stars this month"
     },
     {
       "rank": 13,
-      "name": "tashfeenahmed/freellmapi",
-      "stars": "8,213 stars this month"
+      "name": "NVIDIA/OpenShell",
+      "stars": "7,574 stars this month"
     },
     {
       "rank": 14,
-      "name": "NVIDIA/OpenShell",
-      "stars": "7,457 stars this month"
+      "name": "TencentCloud/Octop",
+      "stars": "7,517 stars this month"
     },
     {
       "rank": 15,
-      "name": "TencentCloud/Octop",
-      "stars": "7,333 stars this month"
+      "name": "trycua/cua",
+      "stars": "7,159 stars this month"
     },
     {
       "rank": 16,
-      "name": "trycua/cua",
-      "stars": "7,084 stars this month"
+      "name": "google/artemis",
+      "stars": "7,039 stars this month"
     },
     {
       "rank": 17,
       "name": "anthropics/claude-code",
-      "stars": "6,422 stars this month"
+      "stars": "6,545 stars this month"
     },
     {
       "rank": 18,
       "name": "anthropics/knowledge-work-plugins",
-      "stars": "5,365 stars this month"
+      "stars": "5,569 stars this month"
     },
     {
       "rank": 19,
-      "name": "anthropics/financial-services",
-      "stars": "4,838 stars this month"
+      "name": "mksglu/context-mode",
+      "stars": "5,378 stars this month"
     },
     {
       "rank": 20,
-      "name": "mksglu/context-mode",
-      "stars": "4,706 stars this month"
+      "name": "anthropics/financial-services",
+      "stars": "4,971 stars this month"
     },
     {
       "rank": 21,
       "name": "cursor/plugins",
-      "stars": "3,707 stars this month"
+      "stars": "3,795 stars this month"
     },
     {
       "rank": 22,
       "name": "agent-substrate/substrate",
-      "stars": "3,104 stars this month"
+      "stars": "3,190 stars this month"
+    },
+    {
+      "rank": 23,
+      "name": "longbridge/gpui-kit",
+      "stars": "2,812 stars this month"
     }
   ]
 }
