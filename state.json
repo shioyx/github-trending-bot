@@ -1,192 +1,187 @@
 {
-  "last_updated": "2026-10-21",
+  "last_updated": "2026-10-22",
   "weekly": [
     {
       "rank": 1,
       "name": "morluto/rea",
-      "stars": "157,631 stars this week"
+      "stars": "129,417 stars this week"
     },
     {
       "rank": 2,
       "name": "debpalash/VoiceStudio",
-      "stars": "17,057 stars this week"
+      "stars": "15,125 stars this week"
     },
     {
       "rank": 3,
-      "name": "MadsLorentzen/ai-job-search",
-      "stars": "12,848 stars this week"
+      "name": "stablyai/orca",
+      "stars": "8,705 stars this week"
     },
     {
       "rank": 4,
-      "name": "boykopovar/AnyPS5",
-      "stars": "11,169 stars this week"
+      "name": "anomalyco/opencode",
+      "stars": "6,545 stars this week"
     },
     {
       "rank": 5,
-      "name": "storytold/artcraft",
-      "stars": "10,287 stars this week"
+      "name": "NationalSecurityAgency/ghidra",
+      "stars": "5,769 stars this week"
     },
     {
       "rank": 6,
-      "name": "NationalSecurityAgency/ghidra",
-      "stars": "6,184 stars this week"
+      "name": "heygen-com/hyperframes",
+      "stars": "5,740 stars this week"
     },
     {
       "rank": 7,
-      "name": "heygen-com/hyperframes",
-      "stars": "5,994 stars this week"
+      "name": "anthropics/claude-plugins-official",
+      "stars": "5,703 stars this week"
     },
     {
       "rank": 8,
-      "name": "anthropics/claude-plugins-official",
-      "stars": "5,650 stars this week"
+      "name": "K-Dense-AI/scientific-agent-skills",
+      "stars": "4,719 stars this week"
     },
     {
       "rank": 9,
-      "name": "cathrynlavery/diagram-design",
-      "stars": "5,473 stars this week"
+      "name": "HKUDS/CLI-Anything",
+      "stars": "3,681 stars this week"
     },
     {
       "rank": 10,
-      "name": "K-Dense-AI/scientific-agent-skills",
-      "stars": "4,549 stars this week"
+      "name": "ruvnet/ruflo",
+      "stars": "3,590 stars this week"
     },
     {
       "rank": 11,
       "name": "mksglu/context-mode",
-      "stars": "3,556 stars this week"
+      "stars": "2,968 stars this week"
     },
     {
       "rank": 12,
-      "name": "ruvnet/ruflo",
-      "stars": "3,143 stars this week"
+      "name": "akitaonrails/ai-memory",
+      "stars": "2,833 stars this week"
     },
     {
       "rank": 13,
       "name": "cursor/plugins",
-      "stars": "2,040 stars this week"
+      "stars": "2,049 stars this week"
     },
     {
       "rank": 14,
-      "name": "android/skills",
-      "stars": "1,255 stars this week"
+      "name": "earthtojake/text-to-cad",
+      "stars": "2,000 stars this week"
     },
     {
       "rank": 15,
+      "name": "android/skills",
+      "stars": "1,332 stars this week"
+    },
+    {
+      "rank": 16,
       "name": "wshobson/agents",
-      "stars": "665 stars this week"
+      "stars": "785 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "debpalash/VoiceStudio",
-      "stars": "45,470 stars this month"
+      "stars": "46,590 stars this month"
     },
     {
       "rank": 2,
       "name": "vectorize-io/hindsight",
-      "stars": "28,261 stars this month"
+      "stars": "28,488 stars this month"
     },
     {
       "rank": 3,
       "name": "paperclipai/paperclip",
-      "stars": "24,372 stars this month"
+      "stars": "24,756 stars this month"
     },
     {
       "rank": 4,
       "name": "affaan-m/ECC",
-      "stars": "22,836 stars this month"
+      "stars": "22,531 stars this month"
     },
     {
       "rank": 5,
       "name": "rohitg00/ai-engineering-from-scratch",
-      "stars": "16,986 stars this month"
+      "stars": "17,286 stars this month"
     },
     {
       "rank": 6,
       "name": "heygen-com/hyperframes",
-      "stars": "16,644 stars this month"
+      "stars": "17,177 stars this month"
     },
     {
       "rank": 7,
       "name": "cloudflare/security-audit-skill",
-      "stars": "15,824 stars this month"
+      "stars": "16,694 stars this month"
     },
     {
       "rank": 8,
       "name": "pbakaus/impeccable",
-      "stars": "14,636 stars this month"
+      "stars": "15,078 stars this month"
     },
     {
       "rank": 9,
       "name": "NationalSecurityAgency/ghidra",
-      "stars": "13,031 stars this month"
+      "stars": "13,471 stars this month"
     },
     {
       "rank": 10,
       "name": "tashfeenahmed/freellmapi",
-      "stars": "10,683 stars this month"
+      "stars": "11,190 stars this month"
     },
     {
       "rank": 11,
       "name": "NVIDIA/OpenShell",
-      "stars": "8,173 stars this month"
+      "stars": "8,303 stars this month"
     },
     {
       "rank": 12,
       "name": "mksglu/context-mode",
-      "stars": "7,699 stars this month"
+      "stars": "7,915 stars this month"
     },
     {
       "rank": 13,
       "name": "anthropics/claude-plugins-official",
-      "stars": "6,997 stars this month"
+      "stars": "7,175 stars this month"
     },
     {
       "rank": 14,
-      "name": "TencentCloud/Octop",
-      "stars": "6,143 stars this month"
+      "name": "HKUDS/CLI-Anything",
+      "stars": "6,389 stars this month"
     },
     {
       "rank": 15,
-      "name": "HKUDS/CLI-Anything",
-      "stars": "6,135 stars this month"
+      "name": "TencentCloud/Octop",
+      "stars": "6,164 stars this month"
     },
     {
       "rank": 16,
       "name": "earthtojake/text-to-cad",
-      "stars": "5,836 stars this month"
+      "stars": "6,081 stars this month"
     },
     {
       "rank": 17,
       "name": "pingdotgg/t3code",
-      "stars": "5,793 stars this month"
+      "stars": "6,006 stars this month"
     },
     {
       "rank": 18,
       "name": "anthropics/knowledge-work-plugins",
-      "stars": "5,496 stars this month"
+      "stars": "5,802 stars this month"
     },
     {
       "rank": 19,
-      "name": "anthropics/financial-services",
-      "stars": "5,457 stars this month"
+      "name": "cursor/plugins",
+      "stars": "5,135 stars this month"
     },
     {
       "rank": 20,
-      "name": "cursor/plugins",
-      "stars": "5,033 stars this month"
-    },
-    {
-      "rank": 21,
-      "name": "VectifyAI/PageIndex",
-      "stars": "3,715 stars this month"
-    },
-    {
-      "rank": 22,
-      "name": "agent-substrate/substrate",
-      "stars": "3,659 stars this month"
+      "name": "anthropics/financial-services",
+      "stars": "5,124 stars this month"
     }
   ]
 }
