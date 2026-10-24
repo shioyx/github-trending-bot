@@ -1,182 +1,187 @@
 {
-  "last_updated": "2026-10-23",
+  "last_updated": "2026-10-24",
   "weekly": [
     {
       "rank": 1,
       "name": "morluto/rea",
-      "stars": "106,341 stars this week"
+      "stars": "88,243 stars this week"
     },
     {
       "rank": 2,
       "name": "debpalash/VoiceStudio",
-      "stars": "13,581 stars this week"
+      "stars": "12,526 stars this week"
     },
     {
       "rank": 3,
       "name": "stablyai/orca",
-      "stars": "9,401 stars this week"
+      "stars": "9,545 stars this week"
     },
     {
       "rank": 4,
       "name": "anomalyco/opencode",
-      "stars": "6,750 stars this week"
+      "stars": "6,765 stars this week"
     },
     {
       "rank": 5,
       "name": "heygen-com/hyperframes",
-      "stars": "5,669 stars this week"
+      "stars": "5,553 stars this week"
     },
     {
       "rank": 6,
-      "name": "anthropics/claude-plugins-official",
-      "stars": "5,649 stars this week"
+      "name": "Comfy-Org/ComfyUI",
+      "stars": "4,531 stars this week"
     },
     {
       "rank": 7,
-      "name": "NationalSecurityAgency/ghidra",
-      "stars": "4,892 stars this week"
+      "name": "anthropics/claude-plugins-official",
+      "stars": "4,250 stars this week"
     },
     {
       "rank": 8,
-      "name": "Comfy-Org/ComfyUI",
-      "stars": "4,375 stars this week"
+      "name": "NationalSecurityAgency/ghidra",
+      "stars": "4,221 stars this week"
     },
     {
       "rank": 9,
-      "name": "K-Dense-AI/scientific-agent-skills",
-      "stars": "3,967 stars this week"
+      "name": "akitaonrails/ai-memory",
+      "stars": "3,449 stars this week"
     },
     {
       "rank": 10,
       "name": "ruvnet/ruflo",
-      "stars": "3,708 stars this week"
+      "stars": "3,349 stars this week"
     },
     {
       "rank": 11,
-      "name": "akitaonrails/ai-memory",
-      "stars": "3,322 stars this week"
+      "name": "HKUDS/CLI-Anything",
+      "stars": "3,303 stars this week"
     },
     {
       "rank": 12,
-      "name": "HKUDS/CLI-Anything",
-      "stars": "3,275 stars this week"
+      "name": "K-Dense-AI/scientific-agent-skills",
+      "stars": "3,077 stars this week"
     },
     {
       "rank": 13,
-      "name": "mksglu/context-mode",
-      "stars": "2,271 stars this week"
+      "name": "cursor/plugins",
+      "stars": "1,946 stars this week"
     },
     {
       "rank": 14,
-      "name": "cursor/plugins",
-      "stars": "2,046 stars this week"
+      "name": "android/skills",
+      "stars": "1,471 stars this week"
     },
     {
       "rank": 15,
-      "name": "android/skills",
-      "stars": "1,384 stars this week"
+      "name": "elie222/rakazo",
+      "stars": "1,094 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "debpalash/VoiceStudio",
-      "stars": "47,620 stars this month"
+      "stars": "48,343 stars this month"
     },
     {
       "rank": 2,
       "name": "vectorize-io/hindsight",
-      "stars": "28,067 stars this month"
+      "stars": "28,115 stars this month"
     },
     {
       "rank": 3,
       "name": "paperclipai/paperclip",
-      "stars": "25,127 stars this month"
+      "stars": "25,543 stars this month"
     },
     {
       "rank": 4,
       "name": "affaan-m/ECC",
-      "stars": "22,715 stars this month"
+      "stars": "22,804 stars this month"
     },
     {
       "rank": 5,
       "name": "cloudflare/security-audit-skill",
-      "stars": "18,566 stars this month"
+      "stars": "20,554 stars this month"
     },
     {
       "rank": 6,
       "name": "heygen-com/hyperframes",
-      "stars": "17,770 stars this month"
+      "stars": "18,268 stars this month"
     },
     {
       "rank": 7,
       "name": "rohitg00/ai-engineering-from-scratch",
-      "stars": "17,489 stars this month"
+      "stars": "17,479 stars this month"
     },
     {
       "rank": 8,
       "name": "pbakaus/impeccable",
-      "stars": "15,375 stars this month"
+      "stars": "15,614 stars this month"
     },
     {
       "rank": 9,
       "name": "NationalSecurityAgency/ghidra",
-      "stars": "13,804 stars this month"
+      "stars": "14,248 stars this month"
     },
     {
       "rank": 10,
       "name": "tashfeenahmed/freellmapi",
-      "stars": "11,569 stars this month"
+      "stars": "12,006 stars this month"
     },
     {
       "rank": 11,
       "name": "NVIDIA/OpenShell",
-      "stars": "8,473 stars this month"
+      "stars": "9,666 stars this month"
     },
     {
       "rank": 12,
-      "name": "mksglu/context-mode",
-      "stars": "8,015 stars this month"
+      "name": "thedotmack/claude-mem",
+      "stars": "8,445 stars this month"
     },
     {
       "rank": 13,
-      "name": "anthropics/claude-plugins-official",
-      "stars": "7,380 stars this month"
+      "name": "mksglu/context-mode",
+      "stars": "8,135 stars this month"
     },
     {
       "rank": 14,
-      "name": "HKUDS/CLI-Anything",
-      "stars": "6,636 stars this month"
+      "name": "anthropics/claude-plugins-official",
+      "stars": "7,614 stars this month"
     },
     {
       "rank": 15,
-      "name": "earthtojake/text-to-cad",
-      "stars": "6,334 stars this month"
+      "name": "anthropics/knowledge-work-plugins",
+      "stars": "6,635 stars this month"
     },
     {
       "rank": 16,
-      "name": "TencentCloud/Octop",
-      "stars": "6,233 stars this month"
+      "name": "earthtojake/text-to-cad",
+      "stars": "6,519 stars this month"
     },
     {
       "rank": 17,
       "name": "pingdotgg/t3code",
-      "stars": "6,208 stars this month"
+      "stars": "6,387 stars this month"
     },
     {
       "rank": 18,
-      "name": "anthropics/knowledge-work-plugins",
-      "stars": "6,026 stars this month"
+      "name": "TencentCloud/Octop",
+      "stars": "6,225 stars this month"
     },
     {
       "rank": 19,
       "name": "cursor/plugins",
-      "stars": "5,217 stars this month"
+      "stars": "5,333 stars this month"
     },
     {
       "rank": 20,
       "name": "VectifyAI/PageIndex",
-      "stars": "3,800 stars this month"
+      "stars": "3,867 stars this month"
+    },
+    {
+      "rank": 21,
+      "name": "supabase/supabase",
+      "stars": "3,317 stars this month"
     }
   ]
 }
