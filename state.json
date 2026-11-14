@@ -1,132 +1,157 @@
 {
-  "last_updated": "2026-11-13",
+  "last_updated": "2026-11-14",
   "weekly": [
     {
       "rank": 1,
-      "name": "cloudflare/security-audit-skill",
-      "stars": "10,700 stars this week"
+      "name": "sherlock-project/sherlock",
+      "stars": "13,364 stars this week"
     },
     {
       "rank": 2,
-      "name": "milind-soni/OpenMausBot",
-      "stars": "9,104 stars this week"
+      "name": "cloudflare/security-audit-skill",
+      "stars": "8,829 stars this week"
     },
     {
       "rank": 3,
-      "name": "mattpocock/skills",
-      "stars": "8,731 stars this week"
+      "name": "milind-soni/OpenMausBot",
+      "stars": "7,763 stars this week"
     },
     {
       "rank": 4,
-      "name": "vercel-labs/agent-desktop",
-      "stars": "6,414 stars this week"
+      "name": "mattpocock/skills",
+      "stars": "7,599 stars this week"
     },
     {
       "rank": 5,
       "name": "anthropics/skills",
-      "stars": "6,055 stars this week"
+      "stars": "6,169 stars this week"
     },
     {
       "rank": 6,
-      "name": "NVIDIA/auto-ontology",
-      "stars": "5,802 stars this week"
+      "name": "google/elephant-goldfish-model",
+      "stars": "5,560 stars this week"
     },
     {
       "rank": 7,
-      "name": "D4Vinci/Scrapling",
-      "stars": "4,743 stars this week"
+      "name": "vercel-labs/agent-desktop",
+      "stars": "5,408 stars this week"
     },
     {
       "rank": 8,
       "name": "vercel-labs/agent-browser",
-      "stars": "4,601 stars this week"
+      "stars": "4,360 stars this week"
     },
     {
       "rank": 9,
-      "name": "zed-industries/zed",
-      "stars": "2,339 stars this week"
+      "name": "NVIDIA/auto-ontology",
+      "stars": "4,108 stars this week"
     },
     {
       "rank": 10,
-      "name": "google/skills",
-      "stars": "1,933 stars this week"
+      "name": "ZhuLinsen/daily_stock_analysis",
+      "stars": "3,778 stars this week"
     },
     {
       "rank": 11,
+      "name": "addyosmani/agent-skills",
+      "stars": "3,502 stars this week"
+    },
+    {
+      "rank": 12,
+      "name": "zed-industries/zed",
+      "stars": "2,117 stars this week"
+    },
+    {
+      "rank": 13,
       "name": "google-deepmind/mujoco",
-      "stars": "1,671 stars this week"
+      "stars": "1,764 stars this week"
+    },
+    {
+      "rank": 14,
+      "name": "anthropics/claude-quickstarts",
+      "stars": "1,731 stars this week"
+    },
+    {
+      "rank": 15,
+      "name": "lobehub/lobehub",
+      "stars": "1,126 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "morluto/rea",
-      "stars": "325,178 stars this month"
+      "stars": "271,084 stars this month"
     },
     {
       "rank": 2,
       "name": "debpalash/VoiceStudio",
-      "stars": "49,960 stars this month"
+      "stars": "48,848 stars this month"
     },
     {
       "rank": 3,
       "name": "cloudflare/security-audit-skill",
-      "stars": "42,602 stars this month"
+      "stars": "42,839 stars this month"
     },
     {
       "rank": 4,
       "name": "pingdotgg/t3code",
-      "stars": "30,926 stars this month"
+      "stars": "32,057 stars this month"
     },
     {
       "rank": 5,
       "name": "pbakaus/impeccable",
-      "stars": "29,165 stars this month"
+      "stars": "29,328 stars this month"
     },
     {
       "rank": 6,
       "name": "Nutlope/hallmark",
-      "stars": "24,106 stars this month"
+      "stars": "24,631 stars this month"
     },
     {
       "rank": 7,
       "name": "heygen-com/hyperframes",
-      "stars": "22,251 stars this month"
+      "stars": "21,924 stars this month"
     },
     {
       "rank": 8,
       "name": "Leonxlnx/taste-skill",
-      "stars": "19,580 stars this month"
+      "stars": "19,948 stars this month"
     },
     {
       "rank": 9,
       "name": "HKUDS/DeepTutor",
-      "stars": "17,692 stars this month"
+      "stars": "17,913 stars this month"
     },
     {
       "rank": 10,
       "name": "thedotmack/claude-mem",
-      "stars": "17,162 stars this month"
+      "stars": "17,120 stars this month"
     },
     {
       "rank": 11,
       "name": "anthropics/skills",
-      "stars": "13,440 stars this month"
+      "stars": "13,734 stars this month"
     },
     {
       "rank": 12,
       "name": "AgriciDaniel/claude-seo",
-      "stars": "9,819 stars this month"
+      "stars": "10,190 stars this month"
     },
     {
       "rank": 13,
       "name": "anthropics/claude-plugins-official",
-      "stars": "9,515 stars this month"
+      "stars": "9,580 stars this month"
     },
     {
       "rank": 14,
+      "name": "vercel-labs/agent-browser",
+      "stars": "6,810 stars this month"
+    },
+    {
+      "rank": 15,
       "name": "anthropics/knowledge-work-plugins",
-      "stars": "6,451 stars this month"
+      "stars": "6,311 stars this month"
     }
   ]
 }
