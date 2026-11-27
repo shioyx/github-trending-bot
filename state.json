@@ -1,172 +1,177 @@
 {
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "weekly": [
     {
       "rank": 1,
       "name": "mvanhorn/last30days-skill",
-      "stars": "5,302 stars this week"
+      "stars": "5,090 stars this week"
     },
     {
       "rank": 2,
       "name": "kajisho5/ffmpeg-skill",
-      "stars": "3,048 stars this week"
+      "stars": "3,229 stars this week"
     },
     {
       "rank": 3,
-      "name": "meta/astryx",
-      "stars": "2,635 stars this week"
+      "name": "google-labs-code/stitch-skills",
+      "stars": "2,619 stars this week"
     },
     {
       "rank": 4,
-      "name": "google-labs-code/stitch-skills",
-      "stars": "2,616 stars this week"
+      "name": "meta/astryx",
+      "stars": "2,519 stars this week"
     },
     {
       "rank": 5,
-      "name": "dream-num/univer",
-      "stars": "2,319 stars this week"
+      "name": "alibaba/open-code-review",
+      "stars": "2,284 stars this week"
     },
     {
       "rank": 6,
       "name": "GoogleChrome/modern-web-guidance-src",
-      "stars": "2,309 stars this week"
+      "stars": "2,209 stars this week"
     },
     {
       "rank": 7,
-      "name": "alibaba/open-code-review",
-      "stars": "2,259 stars this week"
+      "name": "dream-num/univer",
+      "stars": "1,825 stars this week"
     },
     {
       "rank": 8,
       "name": "backnotprop/plannotator",
-      "stars": "1,764 stars this week"
+      "stars": "1,631 stars this week"
     },
     {
       "rank": 9,
       "name": "we-promise/sure",
-      "stars": "1,509 stars this week"
+      "stars": "1,430 stars this week"
     },
     {
       "rank": 10,
       "name": "tradermonty/claude-trading-skills",
-      "stars": "1,422 stars this week"
+      "stars": "1,381 stars this week"
     },
     {
       "rank": 11,
       "name": "ag-ui-protocol/ag-ui",
-      "stars": "1,421 stars this week"
+      "stars": "1,269 stars this week"
     },
     {
       "rank": 12,
       "name": "ChromeDevTools/chrome-devtools-mcp",
-      "stars": "1,203 stars this week"
+      "stars": "1,175 stars this week"
     },
     {
       "rank": 13,
       "name": "n8n-io/nod",
-      "stars": "1,008 stars this week"
+      "stars": "1,165 stars this week"
     },
     {
       "rank": 14,
+      "name": "obsidianmd/obsidian-skills",
+      "stars": "704 stars this week"
+    },
+    {
+      "rank": 15,
       "name": "pookjw/HermesEnabler",
-      "stars": "318 stars this week"
+      "stars": "325 stars this week"
     }
   ],
   "monthly": [
     {
       "rank": 1,
       "name": "pingdotgg/t3code",
-      "stars": "49,283 stars this month"
+      "stars": "50,354 stars this month"
     },
     {
       "rank": 2,
       "name": "Ebony-Vinyl/dsh-our-free-model",
-      "stars": "47,629 stars this month"
+      "stars": "46,809 stars this month"
     },
     {
       "rank": 3,
       "name": "cloudflare/security-audit-skill",
-      "stars": "32,663 stars this month"
+      "stars": "31,165 stars this month"
     },
     {
       "rank": 4,
       "name": "pbakaus/impeccable",
-      "stars": "30,151 stars this month"
+      "stars": "29,366 stars this month"
     },
     {
       "rank": 5,
       "name": "Nutlope/hallmark",
-      "stars": "28,295 stars this month"
+      "stars": "26,738 stars this month"
     },
     {
       "rank": 6,
       "name": "sherlock-project/sherlock",
-      "stars": "22,950 stars this month"
+      "stars": "23,328 stars this month"
     },
     {
       "rank": 7,
       "name": "milind-soni/OpenMausBot",
-      "stars": "22,391 stars this month"
+      "stars": "22,590 stars this month"
     },
     {
       "rank": 8,
-      "name": "yetone/magpie",
-      "stars": "20,593 stars this month"
+      "name": "HKUDS/DeepTutor",
+      "stars": "20,206 stars this month"
     },
     {
       "rank": 9,
-      "name": "HKUDS/DeepTutor",
-      "stars": "20,351 stars this month"
+      "name": "yetone/magpie",
+      "stars": "20,130 stars this month"
     },
     {
       "rank": 10,
-      "name": "heygen-com/hyperframes",
-      "stars": "18,511 stars this month"
+      "name": "elementalsouls/Claude-BugHunter",
+      "stars": "18,637 stars this month"
     },
     {
       "rank": 11,
-      "name": "thedotmack/claude-mem",
-      "stars": "17,424 stars this month"
+      "name": "heygen-com/hyperframes",
+      "stars": "18,292 stars this month"
     },
     {
       "rank": 12,
       "name": "anthropics/skills",
-      "stars": "17,272 stars this month"
+      "stars": "17,538 stars this month"
     },
     {
       "rank": 13,
-      "name": "elementalsouls/Claude-BugHunter",
-      "stars": "17,223 stars this month"
+      "name": "thedotmack/claude-mem",
+      "stars": "17,325 stars this month"
     },
     {
       "rank": 14,
       "name": "AgriciDaniel/claude-seo",
-      "stars": "12,180 stars this month"
+      "stars": "10,958 stars this month"
     },
     {
       "rank": 15,
       "name": "vercel-labs/agent-browser",
-      "stars": "9,541 stars this month"
+      "stars": "9,648 stars this month"
     },
     {
       "rank": 16,
       "name": "kajisho5/ffmpeg-skill",
-      "stars": "8,284 stars this month"
+      "stars": "8,408 stars this month"
     },
     {
       "rank": 17,
       "name": "Jakeschincariol/instagram-agent-skill",
-      "stars": "6,421 stars this month"
+      "stars": "6,511 stars this month"
     },
     {
       "rank": 18,
       "name": "backnotprop/plannotator",
-      "stars": "5,475 stars this month"
+      "stars": "5,601 stars this month"
     },
     {
       "rank": 19,
       "name": "google-labs-code/stitch-skills",
-      "stars": "4,344 stars this month"
+      "stars": "4,609 stars this month"
     }
   ]
 }
